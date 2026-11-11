@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tércio — Product Designer</title>
+  <meta name="description" content="Product Designer who combines creativity with structure, building scalable, consistent and flexible experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top">@terciosantanadesign</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About me</a>
+      <a href="#designs">Great Designs</a>
+      <a href="#case">Study case</a>
+      <a class="btn" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- About me -->
+    <section id="about" class="intro">
+      <h1 class="intro__title">About me</h1>
+      <div class="intro__feature">
+        <img class="intro__photo" src="assets/img/portrait.png" width="576" height="388" alt="Portrait of Tércio">
+        <div class="intro__text">
+          <h2>Hello, i’m Tércio</h2>
+          <p>I'm a Product Designer who enjoys combining creativity with structure. I see products as a collection of building blocks, creating reusable solutions that help teams build scalable, consistent and flexible experiences, just like LEGO.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Building one block at a time -->
+    <section class="section blocks">
+      <div class="section__head">
+        <h2 class="h-40">Building one block at a time</h2>
+        <p class="lead">I believe great design should be beautiful, but I also ensure my Figma files are well-structured and easy to navigate, helping the team collaborate seamlessly</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Variables</h3>
+          <p>I use variables to keep patterns and consistency</p>
+          <img src="assets/img/card-variables.png" width="278" height="200" alt="">
+        </article>
+        <article class="card">
+          <h3>Components</h3>
+          <p>I create reusable components that make me work faster</p>
+          <img src="assets/img/card-components.png" width="278" height="200" alt="">
+        </article>
+        <article class="card">
+          <h3>Organization</h3>
+          <p>I keep my projects easy to read with organization</p>
+          <img src="assets/img/card-organization.png" width="278" height="200" alt="">
+        </article>
+      </div>
+    </section>
+
+    <!-- Challenges build creativity -->
+    <section id="designs" class="section gallery">
+      <div class="section__head">
+        <h2 class="h-48">Challenges build creativity</h2>
+        <p class="lead lead--20">I can work across a wide array of design styles, from joyful and playful to well toned systems</p>
+      </div>
+      <div class="gallery__grid">
+        <img src="assets/img/gallery-radar.png" width="560" height="315" alt="Radar: action detail screen with checklist and comments">
+        <img src="assets/img/gallery-alexsus.png" width="560" height="315" alt="AlexSUS: teams list in dark mode">
+        <img src="assets/img/gallery-sigpmac.png" width="560" height="315" alt="SIGPMAC: studies maintenance table">
+      </div>
+    </section>
+
+    <!-- Study case -->
+    <section id="case" class="case">
+      <header class="case__head">
+        <h2 class="case__title">Ensuring Access to Healthcare</h2>
+        <p class="case__sub">My most meaningful project, showcased throughout a case study</p>
+      </header>
+
+      <figure class="case__hero">
+        <img src="assets/img/ses-home.png" width="813" height="1400" alt="New home page of the Minas Gerais State Health Department portal">
+      </figure>
+
+      <div class="case__body">
+        <p class="case__summary">Redesign of the official health portal of a state with 21 million people: from audit to launch.</p>
+
+        <dl class="facts">
+          <div><dt>Client</dt><dd>Minas Gerais State Health Department (SES-MG)</dd></div>
+          <div><dt>My role</dt><dd>Sole designer, responsible for the end-to-end design process</dd></div>
+          <div><dt>Period</dt><dd>August 2024 – June 2025</dd></div>
+          <div><dt>Team</dt><dd>Me, a PM, the development team and the Department's staff</dd></div>
+          <div><dt>Deliverables</dt><dd>Audit, information architecture, around 65 screens, advanced search, mobile version, component library and developer handoff</dd></div>
+          <div><dt>Status</dt><dd>Live at saude.mg.gov.br</dd></div>
+        </dl>
+
+        <div class="para">
+          <h3>Context</h3>
+          <p>The SES-MG portal is the digital front door to public health in Minas Gerais. Citizens come looking for vaccines or medicines, municipal managers for resolutions and funding transfers, and health professionals for bulletins and protocols.</p>
+          <p>The old site did not live up to that role. It also needed to get ready to grow, becoming the entry point to several Minas Gerais government subsystems.</p>
+        </div>
+      </div>
+
+      <!-- The problem (text list layout) -->
+      <div class="list-block">
+        <h3 class="list-block__title">The problem</h3>
+        <ul class="list">
+          <li>
+            <h4><span class="dot" aria-hidden="true"></span>Confusing navigation</h4>
+            <p>The menu had several nested sublevels, and it was hard to know where each piece of content lived.</p>
+          </li>
+          <li>
+            <h4><span class="dot" aria-hidden="true"></span>No visual standard</h4>
+            <p>Every button, banner and card followed a different style.</p>
+          </li>
+          <li>
+            <h4><span class="dot" aria-hidden="true"></span>Off the guidelines</h4>
+            <p>The portal followed neither the Brazilian Government Digital Standard nor the WCAG accessibility criteria a public website should meet.</p>
+          </li>
+          <li>
+            <h4><span class="dot" aria-hidden="true"></span>Weak search</h4>
+            <p>Finding a specific document or service came down to luck.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="case__body">
+        <div class="para">
+          <h3>1. Audit: understanding what existed before changing it</h3>
+          <p>Before designing anything, I mapped every possible path through the site and inventoried each component: where it appeared, what it was for and how it varied. The categorization document recorded buttons, cards, search field, carousels, menu and footer.</p>
+          <p><strong>Why:</strong> on a public website with years of accumulated content, redesigning without that map would mean losing pages or repeating the same problems with a new look.</p>
+        </div>
+
+        <div class="para">
+          <h3>2. Information architecture: two front doors</h3>
+          <p>I restructured the site hierarchy into two layers that live side by side:</p>
+          <ul class="bullets">
+            <li><strong>Topic menu</strong> in the public area: Institutional, Health Care, Health Surveillance, Farmácia de Minas, Communication, State Health Fund and Health Data.</li>
+            <li><strong>Audience areas</strong> in an internal layer: About, Manager, Professional and Citizen, each with its own pages.</li>
+          </ul>
+          <p>On the home page I added <strong>shortcuts to the most searched tasks</strong>: Vaccination, Medicines, Services, Resolutions and Health Data. Anyone arriving with a specific need gets there in one click, without going through the menu.</p>
+          <p>Each of the roughly 65 screens was numbered by its position in the hierarchy (e.g. 1.7.3 Councils, 2.8.2 Campaigns), giving the development team and the Department a shared reference to discuss the site.</p>
+        </div>
+      </div>
+
+      <figure class="case__wide">
+        <img src="assets/img/ses-before-after-header.png" width="2000" height="595" alt="Before and after of the portal header: the new version adds an accessibility bar, a topic menu and task shortcuts">
+        <figcaption>Header, before (top) and after (bottom)</figcaption>
+      </figure>
+
+      <div class="case__body">
+        <div class="para">
+          <h3>3. Components and patterns</h3>
+          <p>With the inventory in hand, I created the components that replaced dozens of old variations: buttons, news cards, banners, carousels, date display, search field, menu, footer and page templates. On top of them I added a style guide with around 390 icons.</p>
+          <p>That foundation became the institutional Design System. Every screen uses the same components, which keeps things consistent and lets new pages be created without starting from scratch.</p>
+        </div>
+      </div>
+
+      <figure class="case__image">
+        <img src="assets/img/ses-before-after-card.png" width="925" height="724" alt="Before and after of the news card">
+        <figcaption>News card, before and after</figcaption>
+      </figure>
+
+      <div class="case__body">
+        <div class="para">
+          <h3>4. Advanced search</h3>
+          <p>Since a large share of visits are about finding a specific document or service, search got its own attention:</p>
+          <ul class="bullets">
+            <li>Results grouped by type: Pages, Programs and Actions, Documents and News</li>
+            <li>Side filters by period, year, month, category and section</li>
+            <li>A modal with tips for an effective search</li>
+            <li>A "no results" state that guides the user instead of leaving them at a dead end</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="case__image">
+        <img src="assets/img/ses-search.png" width="1036" height="1400" alt="Advanced search results page with grouped results and side filters">
+      </figure>
+
+      <div class="case__body">
+        <div class="para">
+          <h3>5. Accessibility and mobile</h3>
+          <p>I followed the Government Digital Standard and aimed to meet WCAG as fully as possible:</p>
+          <ul class="bullets">
+            <li>Accessibility bar with keyboard shortcuts (go to content, menu, search and footer)</li>
+            <li>High contrast and font size adjustment</li>
+            <li>VLibras integration, for translation into Brazilian Sign Language</li>
+            <li>Mobile version of the home page</li>
+          </ul>
+        </div>
+
+        <div class="para">
+          <h3>6. Validation with the Department</h3>
+          <p>As the sole designer, I coordinated the process and worked directly with the Department's team. Each delivery went through one or two rounds of presentation and adjustment before approval, with constant alignment with the PM and developers to make sure the solutions were feasible.</p>
+        </div>
+
+        <div class="para">
+          <h3>7. Handoff and delivery follow-up</h3>
+          <p>Beyond design, I led the handoff with the development team: delivering documented screens, explaining behaviors and components, answering questions during implementation and reviewing what was being built. That closeness is what allowed a 65-screen project to reach launch.</p>
+        </div>
+
+        <div class="para">
+          <h3>Outcome</h3>
+          <ul class="bullets">
+            <li>The portal launched and is now the official website of the Minas Gerais State Health Department.</li>
+            <li>Around 65 screens were standardized on a single component library.</li>
+            <li>The portal is aligned with the Government Digital Standard and key accessibility practices.</li>
+            <li>The component foundation now serves the Department's following products.</li>
+          </ul>
+        </div>
+
+        <div class="para">
+          <h3>Learnings</h3>
+          <p><strong>Handoff doesn't end when the file is delivered.</strong> Part of the implementation drifted from the prototype. Today I follow quality review together with the development team until launch.</p>
+          <p><strong>Validate with end users.</strong> Validation was done with the Department. In a next cycle, usability tests with citizens and managers would show whether the shortcuts and the new search solve the most common tasks.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="site-footer__brand">
+      <span class="brand">@terciosantanadesign</span>
+      <p>Senior Product Designer</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href="#about">About me</a>
+      <a href="#designs">Great Designs</a>
+      <a href="#case">Study case</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
