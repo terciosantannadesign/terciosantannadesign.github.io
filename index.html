@@ -1,244 +1,527 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Tércio — Product Designer</title>
-  <meta name="description" content="Product Designer who combines creativity with structure, building scalable, consistent and flexible experiences.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tércio Portfolio v2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: 12-column modular grid, Figma-canvas details (frame labels, selection handles, token names) as the one bold motif */
+:root {
+  --bg: #fbfcfa;
+  --surface: #f0f3ec;
+  --ink: #15181d;
+  --muted: #5b6168;
+  --line: #dfe4da;
+  --brand: #4c8f12;
+  --brand-soft: #e6f2d8;
+  --select: #1f6fff;
+  --on-ink: #fbfcfa;
+  --display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --body: "Inter", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius: 14px;
+  --max: 1200px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111410; --surface: #1a1f18; --ink: #eef1ea; --muted: #a2a99c; --line: #2b3228;
+  --brand: #8fd14a; --brand-soft: #23301a; --select: #5b97ff; --on-ink: #111410; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #111410; --surface: #1a1f18; --ink: #eef1ea; --muted: #a2a99c; --line: #2b3228;
+  --brand: #8fd14a; --brand-soft: #23301a; --select: #5b97ff; --on-ink: #111410; color-scheme: dark; }
 
-  <header class="site-header">
-    <div class="wrap site-header__inner">
-    <a class="brand" href="#top">@terciosantanadesign</a>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--select); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3, h4, p, figure, dl, dd { margin: 0; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; letter-spacing: -0.02em; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.frame-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.frame-tag::before { content: "#"; color: var(--brand); font-weight: 500; }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; }
+.mark { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 20px; text-decoration: none; }
+.mark i { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 22px; }
+.mark i b { aspect-ratio: 1; border-radius: 3px; background: var(--ink); }
+.mark i b:nth-child(2) { background: var(--brand); }
+.nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; background: var(--ink); color: var(--on-ink) !important; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform .15s; }
+.btn:hover { transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: var(--ink) !important; border: 1px solid var(--line); }
+
+/* Hero */
+.hero { padding-block: 88px 72px; }
+.hero__grid { --mw: 440px; display: grid; grid-template-columns: minmax(0, 1fr) var(--mw); gap: 64px; align-items: center; }
+.hero__grid > * { min-width: 0; }
+.hero__text { container-type: inline-size; }
+.hero h1 { font-size: clamp(34px, 12.5cqi, 104px); line-height: .98; font-weight: 800; letter-spacing: -0.035em; margin: 20px 0 28px; }
+.hero h1 em { font-style: normal; color: var(--brand); }
+.hero p.lede { font-size: clamp(15px, 2.9cqi, 21px); color: var(--muted); max-width: 34em; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+.selected { position: relative; margin: 26px 10px 10px; touch-action: none; }
+.selected img { width: 100%; aspect-ratio: 576/430; object-fit: cover; object-position: 50% 30%; border-radius: 4px; user-select: none; -webkit-user-drag: none; }
+.selected::after { content: ""; position: absolute; inset: -6px; border: 1.5px solid var(--select); pointer-events: none; }
+.selected .h { position: absolute; width: 12px; height: 12px; padding: 0; background: var(--bg); border: 1.5px solid var(--select); z-index: 2; cursor: nwse-resize; touch-action: none; transition: transform .15s; }
+.selected .h::before { content: ""; position: absolute; inset: -12px; }
+.selected .h:hover, .selected .h:focus-visible, .selected.is-dragging .h { transform: scale(1.35); }
+.h.tr, .h.bl { cursor: nesw-resize; }
+.h.tl { top: -12px; left: -12px; } .h.tr { top: -12px; right: -12px; } .h.bl { bottom: -12px; left: -12px; } .h.br { bottom: -12px; right: -12px; }
+.selected .name { position: absolute; top: -30px; left: -6px; font-family: var(--mono); font-size: 12px; color: var(--select); }
+.selected .hint { position: absolute; top: -30px; right: -6px; font-family: var(--mono); font-size: 11px; color: var(--muted); transition: opacity .3s; }
+.selected.used .hint { opacity: 0; }
+.selected .size { position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); font-family: var(--mono); font-size: 11px; color: #fff; background: var(--select); padding: 2px 6px; border-radius: 3px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.focus { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 72px; padding-top: 28px; border-top: 1px solid var(--line); }
+.focus span { font-size: 14px; padding: 8px 14px; border-radius: 999px; background: var(--surface); }
+
+/* Sections */
+section { scroll-margin-top: 80px; }
+.sec { padding-block: 96px; }
+.sec__head { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: end; margin-bottom: 48px; }
+.sec__head > * { min-width: 0; }
+.sec__head h2 { font-size: clamp(34px, 4vw, 52px); line-height: 1.05; font-weight: 700; margin-top: 12px; }
+.sec__head p { color: var(--muted); font-size: 18px; max-width: 36em; }
+
+/* Work */
+.work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feat { grid-column: 1 / -1; display: grid; grid-template-columns: 6fr 5fr; background: var(--ink); color: var(--on-ink); border-radius: var(--radius); overflow: hidden; text-decoration: none; }
+.feat__img { background: #e9ecef; overflow: hidden; max-height: 460px; }
+.feat__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s; }
+.feat:hover .feat__img img { transform: scale(1.02); }
+.feat__body { padding: 44px; display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.feat__body .label { color: color-mix(in srgb, var(--on-ink) 65%, transparent); }
+.feat h3 { font-size: clamp(28px, 3vw, 40px); line-height: 1.08; font-weight: 700; }
+.feat p { color: color-mix(in srgb, var(--on-ink) 72%, transparent); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: auto; border-top: 1px solid color-mix(in srgb, var(--on-ink) 18%, transparent); padding-top: 20px; }
+.stats b { display: block; font-family: var(--display); font-size: 30px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats span { font-size: 13px; color: color-mix(in srgb, var(--on-ink) 65%, transparent); }
+.feat .more { font-weight: 600; color: var(--brand); }
+
+.tile { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.tile img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: top left; border-radius: var(--radius); border: 1px solid var(--line); }
+.tile h3 { font-size: 22px; font-weight: 700; }
+.tile p { color: var(--muted); font-size: 15px; }
+.tile .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.soon { font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px dashed var(--line); padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+
+/* Process */
+.process { background: var(--surface); }
+.blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.block { background: var(--bg); border-radius: var(--radius); padding: 28px 28px 0; display: flex; flex-direction: column; gap: 10px; overflow: hidden; min-width: 0; }
+.block h3 { font-size: 24px; font-weight: 700; }
+.block p { color: var(--muted); }
+.block code { font-family: var(--mono); font-size: 12px; color: var(--brand); }
+.block img { margin: 18px auto 0; width: 278px; }
+
+/* Case */
+.case-hero { padding-block: 96px 56px; text-align: left; }
+.case-hero h2 { font-size: clamp(40px, 6vw, 80px); line-height: 1; font-weight: 800; letter-spacing: -0.035em; max-width: 12ch; margin: 16px 0 24px; }
+.case-hero p { font-size: 22px; color: var(--muted); max-width: 30em; }
+.case-cover { border-radius: var(--radius); overflow: hidden; background: var(--surface); padding: 48px 48px 0; }
+.case-cover img { margin: 0 auto; width: min(760px, 100%); border-radius: 10px 10px 0 0; box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); max-height: 560px; object-fit: cover; object-position: top; }
+
+.case-layout { display: grid; grid-template-columns: 300px 1fr; gap: 72px; padding-block: 72px; align-items: start; }
+.case-layout > * { min-width: 0; }
+.facts { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 18px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); }
+.facts dt { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.facts dd { font-size: 15px; line-height: 1.45; }
+.facts .live { display: inline-flex; align-items: center; gap: 8px; }
+.facts .live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 0 4px var(--brand-soft); }
+
+.story { display: flex; flex-direction: column; gap: 64px; max-width: 720px; }
+.story h3 { font-size: 30px; line-height: 1.15; font-weight: 700; margin-bottom: 16px; }
+.story p, .story li { color: var(--muted); }
+.story p + p, .story ul + p { margin-top: 14px; }
+.story strong { color: var(--ink); font-weight: 600; }
+.story ul { margin: 14px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+.summary { font-family: var(--display); font-size: 28px; line-height: 1.25; font-weight: 500; color: var(--ink) !important; }
+
+.problems { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+.problem { padding: 22px; border-radius: var(--radius); background: var(--surface); min-width: 0; }
+.problem h4 { font-family: var(--display); font-size: 19px; margin: 0 0 8px; }
+.problem p { font-size: 15px; }
+
+.steps { display: flex; flex-direction: column; gap: 56px; counter-reset: step; }
+.step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; }
+.step > div { min-width: 0; }
+.step .n { font-family: var(--mono); font-size: 13px; color: var(--brand); width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid var(--brand); display: grid; place-items: center; }
+.step h3 { font-size: 26px; }
+
+.fig { margin-top: 24px; }
+.fig img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: #fff; }
+.fig figcaption { margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.wide-fig { padding-bottom: 24px; }
+.wide-fig img { width: 100%; border-radius: var(--radius); border: 1px solid var(--line); }
+.wide-fig figcaption { margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+.outcome { background: var(--brand-soft); border-radius: var(--radius); padding: 32px; }
+.outcome li { color: var(--ink); }
+
+/* Contact */
+.contact { background: var(--ink); color: var(--on-ink); }
+.contact .wrap { padding-block: 96px 48px; }
+.contact h2 { font-size: clamp(44px, 7vw, 96px); line-height: .95; font-weight: 800; letter-spacing: -0.04em; max-width: 10ch; }
+.contact h2 em { font-style: normal; color: var(--brand); }
+.contact__row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+.contact .btn { background: var(--on-ink); color: var(--ink) !important; }
+.contact .btn--ghost { background: transparent; color: var(--on-ink) !important; border-color: color-mix(in srgb, var(--on-ink) 25%, transparent); }
+.foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 96px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--on-ink) 15%, transparent); font-size: 14px; color: color-mix(in srgb, var(--on-ink) 60%, transparent); }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .hero__grid, .sec__head, .feat, .case-layout { grid-template-columns: 1fr; }
+  .hero__grid { gap: 56px; }
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__media { width: var(--mw); max-width: 100%; }
+  .work, .blocks { grid-template-columns: 1fr 1fr; }
+  .facts { position: static; display: grid; grid-template-columns: 1fr 1fr; }
+  .case-layout { gap: 48px; }
+  .feat__img { max-height: 360px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .nav a:not(.btn) { display: none; }
+  .hero { padding-block: 48px 48px; }
+  .hero p.lede { font-size: 17px; }
+  .focus { margin-top: 56px; }
+  .sec { padding-block: 64px; }
+  .work, .blocks, .problems, .facts { grid-template-columns: 1fr; }
+  .feat__body { padding: 28px; }
+  .stats b { font-size: 24px; }
+  .case-hero { padding-block: 64px 32px; }
+  .case-hero p { font-size: 18px; }
+  .case-cover { padding: 20px 20px 0; }
+  .summary { font-size: 22px; }
+  .step { grid-template-columns: 1fr; gap: 12px; }
+  .story h3, .step h3 { font-size: 24px; }
+  .outcome { padding: 24px; }
+}
+</style></head><body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Tércio, home"><i aria-hidden="true"><b></b><b></b><b></b><b></b></i>Tércio</a>
     <nav class="nav" aria-label="Main">
-      <a href="#about">About me</a>
-      <a href="#designs">Great Designs</a>
-      <a href="#case">Study case</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#case">Case study</a>
       <a class="btn" href="#contact">Contact</a>
     </nav>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <main id="top">
-
-    <!-- About me -->
-    <section id="about" class="intro">
-      <div class="wrap">
-      <h1 class="intro__title">About me</h1>
-      <div class="intro__feature">
-        <img class="intro__photo" src="assets/img/portrait.png" width="576" height="388" alt="Portrait of Tércio">
-        <div class="intro__text">
-          <h2>Hello, i’m Tércio</h2>
-          <p>I'm a Product Designer who enjoys combining creativity with structure. I see products as a collection of building blocks, creating reusable solutions that help teams build scalable, consistent and flexible experiences, just like LEGO.</p>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div class="hero__text">
+          <span class="label">Senior Product Designer · UX Specialist (PUC-RS)</span>
+          <h1>Creativity, built with <em>structure.</em></h1>
+          <p class="lede">Hello, I’m Tércio. I see products as a collection of building blocks, creating reusable solutions that help teams build scalable, consistent and flexible experiences, just like LEGO.</p>
+          <div class="hero__cta">
+            <a class="btn" href="#case">See the case study</a>
+            <a class="btn btn--ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="selected" id="portrait">
+            <span class="name">Portrait / Tércio</span>
+            <span class="hint">Drag a corner to resize</span>
+            <button class="h tl" data-x="-1" data-y="-1" aria-label="Resize portrait, top left corner"></button>
+            <button class="h tr" data-x="1" data-y="-1" aria-label="Resize portrait, top right corner"></button>
+            <button class="h bl" data-x="-1" data-y="1" aria-label="Resize portrait, bottom left corner"></button>
+            <button class="h br" data-x="1" data-y="1" aria-label="Resize portrait, bottom right corner"></button>
+            <img src="assets/img/portrait.png" width="576" height="388" alt="Portrait of Tércio">
+            <span class="size" aria-live="polite">576 × 430</span>
+          </div>
         </div>
       </div>
+      <div class="focus" aria-label="Focus areas">
+        <span>Digital Products</span><span>Design Systems</span><span>Product Strategy</span><span>Gov.br Standard</span><span>WCAG Accessibility</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Building one block at a time -->
-    <section class="section blocks">
-      <div class="section__head">
-        <h2 class="h-40">Building one block at a time</h2>
-        <p class="lead">I believe great design should be beautiful, but I also ensure my Figma files are well-structured and easy to navigate, helping the team collaborate seamlessly</p>
+  <section id="work" class="sec">
+    <div class="wrap">
+      <div class="sec__head">
+        <div><span class="frame-tag">Selected work</span><h2>Challenges build creativity</h2></div>
+        <p>I can work across a wide array of design styles, from joyful and playful to well toned systems.</p>
       </div>
-      <div class="cards">
-        <article class="card">
+
+      <div class="work">
+        <a class="feat" href="#case">
+          <div class="feat__img"><img src="assets/img/ses-home.png" width="813" height="1400" alt="New home page of the Minas Gerais State Health Department portal"></div>
+          <div class="feat__body">
+            <span class="label">Case study · Public health · 2024–2025</span>
+            <h3>Ensuring Access to Healthcare</h3>
+            <p>Redesign of the official health portal of a state with 21 million people: from audit to launch.</p>
+            <div class="stats">
+              <div><b>~65</b><span>screens</span></div>
+              <div><b>~390</b><span>icons</span></div>
+              <div><b>1</b><span>designer</span></div>
+            </div>
+            <span class="more">Read the case →</span>
+          </div>
+        </a>
+
+        <article class="tile">
+          <img src="assets/img/gallery-radar.png" width="560" height="315" alt="Radar: action detail screen with checklist and comments">
+          <div class="row"><h3>Radar</h3><span class="soon">Case soon</span></div>
+          <p>Metrics monitoring for the municipalities of Minas Gerais.</p>
+        </article>
+        <article class="tile">
+          <img src="assets/img/gallery-sigpmac.png" width="560" height="315" alt="SIGPMAC: studies maintenance table">
+          <div class="row"><h3>SIGPMAC</h3><span class="soon">Case soon</span></div>
+          <p>Financial system for distributing public resources to health entities.</p>
+        </article>
+        <article class="tile">
+          <img src="assets/img/gallery-alexsus.png" width="560" height="315" alt="AlexSUS: teams list in dark mode">
+          <div class="row"><h3>AlexSUS</h3><span class="soon">Case soon</span></div>
+          <p>Team management interface, designed in dark mode.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="sec process">
+    <div class="wrap">
+      <div class="sec__head">
+        <div><span class="frame-tag">Process</span><h2>Building one block at a time</h2></div>
+        <p>I believe great design should be beautiful, but I also ensure my Figma files are well-structured and easy to navigate, helping the team collaborate seamlessly.</p>
+      </div>
+      <div class="blocks">
+        <article class="block">
+          <code>color/brand/main</code>
           <h3>Variables</h3>
-          <p>I use variables to keep patterns and consistency</p>
+          <p>I use variables to keep patterns and consistency.</p>
           <img src="assets/img/card-variables.png" width="278" height="200" alt="">
         </article>
-        <article class="card">
+        <article class="block">
+          <code>button/primary</code>
           <h3>Components</h3>
-          <p>I create reusable components that make me work faster</p>
+          <p>I create reusable components that make me work faster.</p>
           <img src="assets/img/card-components.png" width="278" height="200" alt="">
         </article>
-        <article class="card">
+        <article class="block">
+          <code>page/style-guide</code>
           <h3>Organization</h3>
-          <p>I keep my projects easy to read with organization</p>
+          <p>I keep my projects easy to read with organization.</p>
           <img src="assets/img/card-organization.png" width="278" height="200" alt="">
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Challenges build creativity -->
-    <section id="designs" class="section gallery">
-      <div class="section__head">
-        <h2 class="h-48">Challenges build creativity</h2>
-        <p class="lead lead--20">I can work across a wide array of design styles, from joyful and playful to well toned systems</p>
-      </div>
-      <div class="gallery__grid">
-        <img src="assets/img/gallery-radar.png" width="560" height="315" alt="Radar: action detail screen with checklist and comments">
-        <img src="assets/img/gallery-alexsus.png" width="560" height="315" alt="AlexSUS: teams list in dark mode">
-        <img src="assets/img/gallery-sigpmac.png" width="560" height="315" alt="SIGPMAC: studies maintenance table">
-      </div>
-    </section>
-
-    <!-- Study case -->
-    <section id="case" class="case">
-      <header class="case__head">
-        <h2 class="case__title">Ensuring Access to Healthcare</h2>
-        <p class="case__sub">My most meaningful project, showcased throughout a case study</p>
+  <section id="case">
+    <div class="wrap">
+      <header class="case-hero">
+        <span class="frame-tag">Case study · SES-MG</span>
+        <h2>Ensuring Access to Healthcare</h2>
+        <p>My most meaningful project, showcased throughout a case study.</p>
       </header>
-
-      <figure class="case__hero">
+      <figure class="case-cover">
         <img src="assets/img/ses-home.png" width="813" height="1400" alt="New home page of the Minas Gerais State Health Department portal">
       </figure>
 
-      <div class="case__body">
-        <p class="case__summary">Redesign of the official health portal of a state with 21 million people: from audit to launch.</p>
-
+      <div class="case-layout">
         <dl class="facts">
           <div><dt>Client</dt><dd>Minas Gerais State Health Department (SES-MG)</dd></div>
-          <div><dt>My role</dt><dd>Sole designer, responsible for the end-to-end design process</dd></div>
-          <div><dt>Period</dt><dd>August 2024 – June 2025</dd></div>
-          <div><dt>Team</dt><dd>Me, a PM, the development team and the Department's staff</dd></div>
-          <div><dt>Deliverables</dt><dd>Audit, information architecture, around 65 screens, advanced search, mobile version, component library and developer handoff</dd></div>
-          <div><dt>Status</dt><dd>Live at saude.mg.gov.br</dd></div>
+          <div><dt>My role</dt><dd>Sole designer, end-to-end</dd></div>
+          <div><dt>Period</dt><dd>Aug 2024 – Jun 2025</dd></div>
+          <div><dt>Team</dt><dd>Me, a PM, developers and the Department’s staff</dd></div>
+          <div><dt>Deliverables</dt><dd>Audit, IA, ~65 screens, advanced search, mobile, component library, handoff</dd></div>
+          <div><dt>Status</dt><dd class="live">Live at saude.mg.gov.br</dd></div>
         </dl>
 
-        <div class="para">
-          <h3>Context</h3>
-          <p>The SES-MG portal is the digital front door to public health in Minas Gerais. Citizens come looking for vaccines or medicines, municipal managers for resolutions and funding transfers, and health professionals for bulletins and protocols.</p>
-          <p>The old site did not live up to that role. It also needed to get ready to grow, becoming the entry point to several Minas Gerais government subsystems.</p>
+        <div class="story">
+          <div>
+            <p class="summary">Redesign of the official health portal of a state with 21 million people: from audit to launch.</p>
+          </div>
+
+          <div>
+            <h3>Context</h3>
+            <p>The SES-MG portal is the digital front door to public health in Minas Gerais. Citizens come looking for vaccines or medicines, municipal managers for resolutions and funding transfers, and health professionals for bulletins and protocols.</p>
+            <p>The old site did not live up to that role. It also needed to get ready to grow, becoming the entry point to several Minas Gerais government subsystems.</p>
+          </div>
+
+          <div>
+            <h3>The problem</h3>
+            <div class="problems">
+              <div class="problem"><h4>Confusing navigation</h4><p>The menu had several nested sublevels, and it was hard to know where each piece of content lived.</p></div>
+              <div class="problem"><h4>No visual standard</h4><p>Every button, banner and card followed a different style.</p></div>
+              <div class="problem"><h4>Off the guidelines</h4><p>The portal followed neither the Brazilian Government Digital Standard nor the WCAG accessibility criteria a public website should meet.</p></div>
+              <div class="problem"><h4>Weak search</h4><p>Finding a specific document or service came down to luck.</p></div>
+            </div>
+          </div>
+
+          <div class="steps">
+            <div class="step"><span class="n">01</span><div>
+              <h3>Audit: understanding what existed before changing it</h3>
+              <p>Before designing anything, I mapped every possible path through the site and inventoried each component: where it appeared, what it was for and how it varied. The categorization document recorded buttons, cards, search field, carousels, menu and footer.</p>
+              <p><strong>Why:</strong> on a public website with years of accumulated content, redesigning without that map would mean losing pages or repeating the same problems with a new look.</p>
+            </div></div>
+
+            <div class="step"><span class="n">02</span><div>
+              <h3>Information architecture: two front doors</h3>
+              <p>I restructured the site hierarchy into two layers that live side by side:</p>
+              <ul>
+                <li><strong>Topic menu</strong> in the public area: Institutional, Health Care, Health Surveillance, Farmácia de Minas, Communication, State Health Fund and Health Data.</li>
+                <li><strong>Audience areas</strong> in an internal layer: About, Manager, Professional and Citizen, each with its own pages.</li>
+              </ul>
+              <p>On the home page I added <strong>shortcuts to the most searched tasks</strong>: Vaccination, Medicines, Services, Resolutions and Health Data. Anyone arriving with a specific need gets there in one click, without going through the menu.</p>
+              <p>Each of the roughly 65 screens was numbered by its position in the hierarchy (e.g. 1.7.3 Councils, 2.8.2 Campaigns), giving the development team and the Department a shared reference to discuss the site.</p>
+            </div></div>
+          </div>
         </div>
       </div>
 
-      <!-- The problem (text list layout) -->
-      <div class="list-block">
-        <h3 class="list-block__title">The problem</h3>
-        <ul class="list">
-          <li>
-            <h4><span class="dot" aria-hidden="true"></span>Confusing navigation</h4>
-            <p>The menu had several nested sublevels, and it was hard to know where each piece of content lived.</p>
-          </li>
-          <li>
-            <h4><span class="dot" aria-hidden="true"></span>No visual standard</h4>
-            <p>Every button, banner and card followed a different style.</p>
-          </li>
-          <li>
-            <h4><span class="dot" aria-hidden="true"></span>Off the guidelines</h4>
-            <p>The portal followed neither the Brazilian Government Digital Standard nor the WCAG accessibility criteria a public website should meet.</p>
-          </li>
-          <li>
-            <h4><span class="dot" aria-hidden="true"></span>Weak search</h4>
-            <p>Finding a specific document or service came down to luck.</p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="case__body">
-        <div class="para">
-          <h3>1. Audit: understanding what existed before changing it</h3>
-          <p>Before designing anything, I mapped every possible path through the site and inventoried each component: where it appeared, what it was for and how it varied. The categorization document recorded buttons, cards, search field, carousels, menu and footer.</p>
-          <p><strong>Why:</strong> on a public website with years of accumulated content, redesigning without that map would mean losing pages or repeating the same problems with a new look.</p>
-        </div>
-
-        <div class="para">
-          <h3>2. Information architecture: two front doors</h3>
-          <p>I restructured the site hierarchy into two layers that live side by side:</p>
-          <ul class="bullets">
-            <li><strong>Topic menu</strong> in the public area: Institutional, Health Care, Health Surveillance, Farmácia de Minas, Communication, State Health Fund and Health Data.</li>
-            <li><strong>Audience areas</strong> in an internal layer: About, Manager, Professional and Citizen, each with its own pages.</li>
-          </ul>
-          <p>On the home page I added <strong>shortcuts to the most searched tasks</strong>: Vaccination, Medicines, Services, Resolutions and Health Data. Anyone arriving with a specific need gets there in one click, without going through the menu.</p>
-          <p>Each of the roughly 65 screens was numbered by its position in the hierarchy (e.g. 1.7.3 Councils, 2.8.2 Campaigns), giving the development team and the Department a shared reference to discuss the site.</p>
-        </div>
-      </div>
-
-      <figure class="case__wide">
+      <figure class="wide-fig">
         <img src="assets/img/ses-before-after-header.png" width="2000" height="595" alt="Before and after of the portal header: the new version adds an accessibility bar, a topic menu and task shortcuts">
-        <figcaption>Header, before (top) and after (bottom)</figcaption>
+        <figcaption>Header — before (top) and after (bottom)</figcaption>
       </figure>
 
-      <div class="case__body">
-        <div class="para">
-          <h3>3. Components and patterns</h3>
-          <p>With the inventory in hand, I created the components that replaced dozens of old variations: buttons, news cards, banners, carousels, date display, search field, menu, footer and page templates. On top of them I added a style guide with around 390 icons.</p>
-          <p>That foundation became the institutional Design System. Every screen uses the same components, which keeps things consistent and lets new pages be created without starting from scratch.</p>
+      <div class="case-layout">
+        <div aria-hidden="true"></div>
+        <div class="story">
+          <div class="steps">
+            <div class="step"><span class="n">03</span><div>
+              <h3>Components and patterns</h3>
+              <p>With the inventory in hand, I created the components that replaced dozens of old variations: buttons, news cards, banners, carousels, date display, search field, menu, footer and page templates. On top of them I added a style guide with around 390 icons.</p>
+              <p>That foundation became the institutional Design System. Every screen uses the same components, which keeps things consistent and lets new pages be created without starting from scratch.</p>
+              <figure class="fig"><img src="assets/img/ses-before-after-card.png" width="925" height="724" alt="Before and after of the news card"><figcaption>News card — before and after</figcaption></figure>
+            </div></div>
+
+            <div class="step"><span class="n">04</span><div>
+              <h3>Advanced search</h3>
+              <p>Since a large share of visits are about finding a specific document or service, search got its own attention:</p>
+              <ul>
+                <li>Results grouped by type: Pages, Programs and Actions, Documents and News</li>
+                <li>Side filters by period, year, month, category and section</li>
+                <li>A modal with tips for an effective search</li>
+                <li>A “no results” state that guides the user instead of leaving them at a dead end</li>
+              </ul>
+              <figure class="fig"><img src="assets/img/ses-search.png" width="1036" height="1400" alt="Advanced search results page with grouped results and side filters"><figcaption>Search results with grouped types and side filters</figcaption></figure>
+            </div></div>
+
+            <div class="step"><span class="n">05</span><div>
+              <h3>Accessibility and mobile</h3>
+              <p>I followed the Government Digital Standard and aimed to meet WCAG as fully as possible:</p>
+              <ul>
+                <li>Accessibility bar with keyboard shortcuts (go to content, menu, search and footer)</li>
+                <li>High contrast and font size adjustment</li>
+                <li>VLibras integration, for translation into Brazilian Sign Language</li>
+                <li>Mobile version of the home page</li>
+              </ul>
+            </div></div>
+
+            <div class="step"><span class="n">06</span><div>
+              <h3>Validation with the Department</h3>
+              <p>As the sole designer, I coordinated the process and worked directly with the Department’s team. Each delivery went through one or two rounds of presentation and adjustment before approval, with constant alignment with the PM and developers to make sure the solutions were feasible.</p>
+            </div></div>
+
+            <div class="step"><span class="n">07</span><div>
+              <h3>Handoff and delivery follow-up</h3>
+              <p>Beyond design, I led the handoff with the development team: delivering documented screens, explaining behaviors and components, answering questions during implementation and reviewing what was being built. That closeness is what allowed a 65-screen project to reach launch.</p>
+            </div></div>
+          </div>
+
+          <div class="outcome">
+            <h3>Outcome</h3>
+            <ul>
+              <li>The portal launched and is now the official website of the Minas Gerais State Health Department.</li>
+              <li>Around 65 screens were standardized on a single component library.</li>
+              <li>The portal is aligned with the Government Digital Standard and key accessibility practices.</li>
+              <li>The component foundation now serves the Department’s following products.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Learnings</h3>
+            <p><strong>Handoff doesn’t end when the file is delivered.</strong> Part of the implementation drifted from the prototype. Today I follow quality review together with the development team until launch.</p>
+            <p><strong>Validate with end users.</strong> Validation was done with the Department. In a next cycle, usability tests with citizens and managers would show whether the shortcuts and the new search solve the most common tasks.</p>
+          </div>
         </div>
       </div>
-
-      <figure class="case__image">
-        <img src="assets/img/ses-before-after-card.png" width="925" height="724" alt="Before and after of the news card">
-        <figcaption>News card, before and after</figcaption>
-      </figure>
-
-      <div class="case__body">
-        <div class="para">
-          <h3>4. Advanced search</h3>
-          <p>Since a large share of visits are about finding a specific document or service, search got its own attention:</p>
-          <ul class="bullets">
-            <li>Results grouped by type: Pages, Programs and Actions, Documents and News</li>
-            <li>Side filters by period, year, month, category and section</li>
-            <li>A modal with tips for an effective search</li>
-            <li>A "no results" state that guides the user instead of leaving them at a dead end</li>
-          </ul>
-        </div>
-      </div>
-
-      <figure class="case__image">
-        <img src="assets/img/ses-search.png" width="1036" height="1400" alt="Advanced search results page with grouped results and side filters">
-      </figure>
-
-      <div class="case__body">
-        <div class="para">
-          <h3>5. Accessibility and mobile</h3>
-          <p>I followed the Government Digital Standard and aimed to meet WCAG as fully as possible:</p>
-          <ul class="bullets">
-            <li>Accessibility bar with keyboard shortcuts (go to content, menu, search and footer)</li>
-            <li>High contrast and font size adjustment</li>
-            <li>VLibras integration, for translation into Brazilian Sign Language</li>
-            <li>Mobile version of the home page</li>
-          </ul>
-        </div>
-
-        <div class="para">
-          <h3>6. Validation with the Department</h3>
-          <p>As the sole designer, I coordinated the process and worked directly with the Department's team. Each delivery went through one or two rounds of presentation and adjustment before approval, with constant alignment with the PM and developers to make sure the solutions were feasible.</p>
-        </div>
-
-        <div class="para">
-          <h3>7. Handoff and delivery follow-up</h3>
-          <p>Beyond design, I led the handoff with the development team: delivering documented screens, explaining behaviors and components, answering questions during implementation and reviewing what was being built. That closeness is what allowed a 65-screen project to reach launch.</p>
-        </div>
-
-        <div class="para">
-          <h3>Outcome</h3>
-          <ul class="bullets">
-            <li>The portal launched and is now the official website of the Minas Gerais State Health Department.</li>
-            <li>Around 65 screens were standardized on a single component library.</li>
-            <li>The portal is aligned with the Government Digital Standard and key accessibility practices.</li>
-            <li>The component foundation now serves the Department's following products.</li>
-          </ul>
-        </div>
-
-        <div class="para">
-          <h3>Learnings</h3>
-          <p><strong>Handoff doesn't end when the file is delivered.</strong> Part of the implementation drifted from the prototype. Today I follow quality review together with the development team until launch.</p>
-          <p><strong>Validate with end users.</strong> Validation was done with the Department. In a next cycle, usability tests with citizens and managers would show whether the shortcuts and the new search solve the most common tasks.</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="contact" class="site-footer">
-    <div class="site-footer__brand">
-      <span class="brand">@terciosantanadesign</span>
-      <p>Senior Product Designer</p>
     </div>
-    <nav class="site-footer__nav" aria-label="Footer">
-      <a href="#about">About me</a>
-      <a href="#designs">Great Designs</a>
-      <a href="#case">Study case</a>
-    </nav>
-  </footer>
+  </section>
+</main>
 
-</body>
-</html>
+<footer id="contact" class="contact">
+  <div class="wrap">
+    <span class="label" style="color:inherit;opacity:.6">Contact</span>
+    <h2>Let’s build the next <em>block.</em></h2>
+    <div class="contact__row">
+      <a class="btn" href="#contact">Email (to add)</a>
+      <a class="btn btn--ghost" href="#contact">LinkedIn (to add)</a>
+    </div>
+    <div class="foot">
+      <span>Tércio · Senior Product Designer</span>
+      <span>Work · Process · Case study</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var grid = document.querySelector('.hero__grid');
+  var box = document.getElementById('portrait');
+  if (!grid || !box) return;
+  var img = box.querySelector('img');
+  var size = box.querySelector('.size');
+  var RATIO = 430 / 576, MIN = 220, DEFAULT = 440;
+  var cur = DEFAULT;
+  function maxW() {
+    var w = grid.clientWidth;
+    return window.matchMedia('(max-width: 960px)').matches ? w : Math.max(MIN, w - 64 - 300);
+  }
+  function apply(w) {
+    cur = Math.round(Math.min(maxW(), Math.max(MIN, w)));
+    grid.style.setProperty('--mw', cur + 'px');
+    var r = img.getBoundingClientRect();
+    size.textContent = Math.round(r.width) + ' × ' + Math.round(r.height);
+  }
+  var start = null;
+  box.querySelectorAll('.h').forEach(function (h) {
+    var sx = +h.dataset.x, sy = +h.dataset.y;
+    h.addEventListener('pointerdown', function (e) {
+      e.preventDefault();
+      h.setPointerCapture(e.pointerId);
+      start = { x: e.clientX, y: e.clientY, w: cur, sx: sx, sy: sy };
+      box.classList.add('is-dragging', 'used');
+    });
+    h.addEventListener('pointermove', function (e) {
+      if (!start) return;
+      var dx = (e.clientX - start.x) * start.sx;
+      var dy = (e.clientY - start.y) * start.sy / RATIO;
+      var d = Math.abs(dx) > Math.abs(dy) ? dx : dy;
+      apply(start.w + d);
+    });
+    function end() { start = null; box.classList.remove('is-dragging'); }
+    h.addEventListener('pointerup', end);
+    h.addEventListener('pointercancel', end);
+    h.addEventListener('dblclick', function () { apply(DEFAULT); });
+    h.addEventListener('keydown', function (e) {
+      var step = e.shiftKey ? 48 : 16, k = e.key;
+      if (k === 'ArrowRight' || k === 'ArrowUp') { apply(cur + step); box.classList.add('used'); e.preventDefault(); }
+      if (k === 'ArrowLeft' || k === 'ArrowDown') { apply(cur - step); box.classList.add('used'); e.preventDefault(); }
+    });
+  });
+  window.addEventListener('resize', function () { apply(cur); });
+  if (img.complete) apply(cur); else img.addEventListener('load', function () { apply(cur); });
+})();
+</script>
+</body></html>
