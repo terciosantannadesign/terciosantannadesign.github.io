@@ -129,8 +129,15 @@ section { scroll-margin-top: 80px; }
 .case-hero { padding-block: 96px 56px; text-align: left; }
 .case-hero h2 { font-size: clamp(40px, 6vw, 80px); line-height: 1; font-weight: 800; letter-spacing: -0.035em; max-width: 12ch; margin: 16px 0 24px; }
 .case-hero p { font-size: 22px; color: var(--muted); max-width: 30em; }
-.case-cover { border-radius: var(--radius); overflow: hidden; background: var(--surface); padding: 48px 48px 0; }
-.case-cover img { margin: 0 auto; width: min(760px, 100%); border-radius: 10px 10px 0 0; box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); max-height: 560px; object-fit: cover; object-position: top; }
+.case-cover { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--surface); padding: 56px 56px 0; display: flex; justify-content: center; }
+.browser { width: min(820px, 88%); border-radius: 12px 12px 0 0; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); }
+.browser__bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #e9ecef; }
+.browser__bar i { width: 10px; height: 10px; border-radius: 50%; background: #c9ced3; }
+.browser__bar span { margin-left: 12px; flex: 1; max-width: 260px; font-family: var(--mono); font-size: 11px; color: #6b7178; background: #fff; border-radius: 6px; padding: 3px 10px; }
+.browser img { width: 100%; max-height: 520px; object-fit: cover; object-position: top; }
+.phone { position: absolute; right: max(4%, calc(50% - 470px)); bottom: -40px; width: 210px; padding: 9px; border-radius: 34px; background: #15181d; box-shadow: 0 30px 60px -20px rgba(0,0,0,.45); }
+.phone img { width: 100%; border-radius: 26px; }
+.cover-cap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 12px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
 .case-layout { display: grid; grid-template-columns: 300px 1fr; gap: 72px; padding-block: 72px; align-items: start; }
 .case-layout > * { min-width: 0; }
@@ -189,6 +196,7 @@ section { scroll-margin-top: 80px; }
   .facts { position: static; display: grid; grid-template-columns: 1fr 1fr; }
   .case-layout { gap: 48px; }
   .feat__img { max-height: 360px; }
+  .phone { width: 170px; }
 }
 @media (max-width: 640px) {
   body { font-size: 16px; }
@@ -203,7 +211,11 @@ section { scroll-margin-top: 80px; }
   .stats b { font-size: 24px; }
   .case-hero { padding-block: 64px 32px; }
   .case-hero p { font-size: 18px; }
-  .case-cover { padding: 20px 20px 0; }
+  .case-cover { padding: 20px 20px 0; justify-content: flex-start; }
+  .browser { width: 100%; }
+  .browser img { max-height: 340px; }
+  .phone { width: 116px; padding: 5px; border-radius: 20px; right: 12px; bottom: -24px; }
+  .phone img { border-radius: 16px; }
   .summary { font-size: 22px; }
   .step { grid-template-columns: 1fr; gap: 12px; }
   .story h3, .step h3 { font-size: 24px; }
@@ -334,8 +346,13 @@ section { scroll-margin-top: 80px; }
         <p>My most meaningful project, showcased throughout a case study.</p>
       </header>
       <figure class="case-cover">
-        <img src="assets/img/ses-home.png" width="813" height="1400" alt="New home page of the Minas Gerais State Health Department portal">
+        <div class="browser">
+          <div class="browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>saude.mg.gov.br</span></div>
+          <img src="assets/img/ses-home.png" width="813" height="1400" alt="New home page of the Minas Gerais State Health Department portal, desktop">
+        </div>
+        <div class="phone"><img src="assets/img/ses-mobile.png" width="390" height="844" alt="Home page on mobile, with search and shortcuts to the most searched tasks"></div>
       </figure>
+      <div class="cover-cap"><span>Home page — desktop and mobile</span><span>Designed in Figma · 1920 / 390 frames</span></div>
 
       <div class="case-layout">
         <dl class="facts">
