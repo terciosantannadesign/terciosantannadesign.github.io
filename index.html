@@ -166,6 +166,27 @@ section { scroll-margin-top: 80px; }
 .wide-fig img { width: 100%; border-radius: var(--radius); border: 1px solid var(--line); }
 .wide-fig figcaption { margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
+.ia { margin-top: 24px; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.ia__root { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding: 14px 18px; border-radius: 10px; background: var(--ink); color: var(--on-ink); }
+.ia__root b { font-family: var(--display); font-size: 20px; font-weight: 600; }
+.ia__root span { font-size: 14px; opacity: .8; }
+.ia__branch { position: relative; margin-top: 22px; padding-left: 22px; border-left: 2px solid var(--line); }
+.ia__label { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
+.ia ul { list-style: none; margin: 0; padding: 0; }
+.story .ia ul { padding: 0; margin: 0; }
+.ia__chips { display: flex !important; flex-wrap: wrap; gap: 8px !important; flex-direction: row !important; }
+.ia__chips li { font-size: 14px; color: var(--ink) !important; padding: 6px 12px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+.ia__aud { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ia__col { padding: 14px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); min-width: 0; }
+.ia__col b { display: block; font-size: 15px; color: var(--ink); margin-bottom: 8px; }
+.ia__col b i { display: block; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--brand); margin-bottom: 2px; }
+.ia__col ul { gap: 6px !important; }
+.ia__col li { font-size: 13px; line-height: 1.35; }
+.ia__col li em { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--brand); }
+.ia figcaption { margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+@media (max-width: 960px) { .ia__aud { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .ia { padding: 16px; } .ia__aud { grid-template-columns: 1fr; } .ia__branch { padding-left: 14px; } }
+
 .outcome { background: var(--brand-soft); border-radius: var(--radius); padding: 32px; }
 .outcome li { color: var(--ink); }
 
@@ -384,6 +405,12 @@ section { scroll-margin-top: 80px; }
               </ul>
               <p>On the home page I added <strong>shortcuts to the most searched tasks</strong>: Vaccination, Medicines, Services, Resolutions and Health Data. Anyone arriving with a specific need gets there in one click, without going through the menu.</p>
               <p>Each of the roughly 65 screens was numbered by its position in the hierarchy (e.g. 1.7.3 Councils, 2.8.2 Campaigns), giving the development team and the Department a shared reference to discuss the site.</p>
+              <figure class="ia" aria-label="Site map: home page, topic menu and audience areas">
+                <div class="ia__root"><b>Home</b><span>Shortcuts: Vaccination · Medicines · Services · Resolutions · Health Data</span></div>
+                <div class="ia__branch"><span class="ia__label">Topic menu · public</span><ul class="ia__chips"><li>Institutional</li><li>Health Care</li><li>Health Surveillance</li><li>Farmácia de Minas</li><li>Communication</li><li>State Health Fund</li><li>Health Data</li></ul></div>
+                <div class="ia__branch"><span class="ia__label">Audience areas · internal layer</span><div class="ia__aud"><div class="ia__col"><b><i>1.0</i>About</b><ul><li>Commemorative dates</li><li>Planning &amp; management <em>(2)</em></li><li>Publications <em>(3)</em></li><li>Human resources</li><li>Press room</li><li>Advertising spend</li><li>Institutional <em>(13)</em></li></ul></div><div class="ia__col"><b><i>2.0</i>Manager</b><ul><li>Pharmaceutical care</li><li>Income tax statement</li><li>Provider management</li><li>Hearing health guides</li><li>Regionalization</li><li>Services <em>(9)</em></li></ul></div><div class="ia__col"><b><i>2.7</i>Professional</b><ul><li>Pharmaceutical assistance</li><li>Therapeutics committee</li><li>Mortality prevention committees</li><li>Epidemiological bulletins <em>(4)</em></li><li>CERAC MG</li></ul></div><div class="ia__col"><b><i>2.8</i>Citizen</b><ul><li>News bank</li><li>Campaigns <em>(10)</em></li><li>SUS FAQ</li><li>Sanitary licensing</li><li>MG App</li><li>Social mobilization</li><li>Getting medicines</li><li>People with disabilities</li><li>Citizen services</li></ul></div></div></div>
+                <figcaption>Site map — numbers in parentheses are sub-pages</figcaption>
+              </figure>
             </div></div>
           </div>
         </div>
@@ -402,6 +429,7 @@ section { scroll-margin-top: 80px; }
               <h3>Components and patterns</h3>
               <p>With the inventory in hand, I created the components that replaced dozens of old variations: buttons, news cards, banners, carousels, date display, search field, menu, footer and page templates. On top of them I added a style guide with around 390 icons.</p>
               <p>That foundation became the institutional Design System. Every screen uses the same components, which keeps things consistent and lets new pages be created without starting from scratch.</p>
+              <figure class="fig"><img src="assets/img/ses-design-system.jpg" width="1346" height="1370" alt="Design System overview: color palette, buttons, search field, news cards, icons and filters" loading="lazy"><figcaption>Part of the Design System — colors, buttons, search field, cards, icons and filters</figcaption></figure>
               <figure class="fig"><img src="assets/img/ses-compare-news.jpg" width="2120" height="1501" alt="Before and after of the news section: featured story and news cards with equal heights and a consistent hierarchy" loading="lazy"><figcaption>News — July 2024 (left) and refined version (right)</figcaption></figure>
             </div></div>
 
@@ -426,6 +454,7 @@ section { scroll-margin-top: 80px; }
                 <li>VLibras integration, for translation into Brazilian Sign Language</li>
                 <li>Mobile version of the home page</li>
               </ul>
+              <figure class="fig"><img src="assets/img/ses-mobile.jpg" width="1346" height="1402" alt="Mobile home page split into three parts: header with shortcuts and banner, news cards, contact and footer" loading="lazy"><figcaption>Mobile home page, from top to bottom</figcaption></figure>
             </div></div>
 
             <div class="step"><span class="n">06</span><div>
