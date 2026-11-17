@@ -222,11 +222,13 @@ section { scroll-margin-top: 80px; }
 .a11y .chips { margin: 0; }
 @media (max-width: 960px) { .cards { grid-template-columns: 1fr; } .a11y { grid-template-columns: 1fr; gap: 20px; } }
 
+.ai-fig { margin-top: 32px; }
+.ai-fig img { width: 100%; border-radius: var(--radius); border: 1px solid var(--line); background: #fff; }
+.ai-fig figcaption { margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 /* Scroll reveal */
 .anim .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
 .anim .reveal.in { opacity: 1; transform: none; }
 .tile img, .block img { transition: transform .4s cubic-bezier(.2,.7,.2,1); }
-.tile:hover img { transform: translateY(-4px); }
 @media (prefers-reduced-motion: reduce) { .anim .reveal { opacity: 1; transform: none; } }
 
 .outcome { background: var(--brand-soft); border-radius: var(--radius); padding: 32px; }
@@ -342,7 +344,7 @@ section { scroll-margin-top: 80px; }
             <p>Redesign of the official health portal of a state with 21 million people: from audit to launch.</p>
             <div class="stats">
               <div><b>~65</b><span>screens</span></div>
-              <div><b>~390</b><span>icons</span></div>
+              <div><b>11</b><span>months</span></div>
               <div><b>1</b><span>designer</span></div>
             </div>
             <span class="more">Read the case →</span>
@@ -366,44 +368,6 @@ section { scroll-margin-top: 80px; }
           <div class="row"><h3>AlexSUS</h3><span class="soon">SES-MG</span></div>
           <p>AI assistant for senior leadership, for example gathering and summarizing a region’s data before a visit.</p>
           <p class="role"><b>My role</b> Product design of the assistant’s interface on the shared Design System.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="more" class="sec more">
-    <div class="wrap">
-      <div class="sec__head">
-        <div><span class="frame-tag">More projects</span><h2>Beyond the Department</h2></div>
-        <p>Research-driven government products, an international project for the UN, and an app I built on my own from idea to store.</p>
-      </div>
-      <div class="cards">
-        <article class="pcard">
-          <span class="label">Own product · 2026</span>
-          <h3>Arrasta</h3>
-          <p>A task organization app for Android, available on Google Play since November 2026.</p>
-          <ul>
-            <li>End to end on my own: concept, design in Figma and native Android development with Claude’s help.</li>
-            <li>Closed beta with real users, with improvements shipped from their feedback.</li>
-          </ul>
-        </article>
-        <article class="pcard">
-          <span class="label">NEES / UFAL · 2023–2025</span>
-          <h3>Government research projects</h3>
-          <p>Sole designer in a multidisciplinary team of UX researchers, developers and educators.</p>
-          <ul>
-            <li>Math app for teachers to assign and grade exercises in schools with little access to technology.</li>
-            <li>National daycare system to find nearby daycares and manage the national waiting list, with an in-person discovery session I ran in Brasília.</li>
-          </ul>
-        </article>
-        <article class="pcard">
-          <span class="label">UDS Tecnologia · 2021–2024</span>
-          <h3>Universal Postal Union (UN)</h3>
-          <p>End-to-end design of an international project, web and mobile.</p>
-          <ul>
-            <li>Led the design of the whole project, running meetings in English with an international team.</li>
-            <li>Designed the national front for Correios (Brazil’s postal service) with the Correios Design System.</li>
-          </ul>
         </article>
       </div>
     </div>
@@ -465,6 +429,48 @@ section { scroll-margin-top: 80px; }
           <code>test</code>
           <h3>Synthetic evaluations</h3>
           <p>AI-generated personas evaluate flows against Nielsen’s heuristics and WCAG criteria, and simulate answers to questionnaires before they go out.</p>
+        </article>
+      </div>
+      <figure class="ai-fig">
+        <img src="assets/img/ses-design-system-refined.jpg" width="1608" height="1246" alt="Design System overview board in Figma with colors, buttons, search field, news card, shortcuts and icons" loading="lazy">
+        <figcaption>Built in Figma with Claude and Figma MCP, assembled from the Design System’s own components and tokens.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="more" class="sec more">
+    <div class="wrap">
+      <div class="sec__head">
+        <div><span class="frame-tag">More projects</span><h2>Beyond the Department</h2></div>
+        <p>Research-driven government products, an international project for the UN, and an app I built on my own from idea to store.</p>
+      </div>
+      <div class="cards">
+        <article class="pcard">
+          <span class="label">Own product · 2026</span>
+          <h3>Arrasta</h3>
+          <p>A task organization app for Android, available on Google Play since November 2026.</p>
+          <ul>
+            <li>End to end on my own: concept, design in Figma and native Android development with Claude’s help.</li>
+            <li>Closed beta with real users, with improvements shipped from their feedback.</li>
+          </ul>
+        </article>
+        <article class="pcard">
+          <span class="label">NEES / UFAL · 2023–2025</span>
+          <h3>Government research projects</h3>
+          <p>Sole designer in a multidisciplinary team of UX researchers, developers and educators.</p>
+          <ul>
+            <li>Math app for teachers to assign and grade exercises in schools with little access to technology.</li>
+            <li>National daycare system to find nearby daycares and manage the national waiting list, with an in-person discovery session I ran in Brasília.</li>
+          </ul>
+        </article>
+        <article class="pcard">
+          <span class="label">UDS Tecnologia · 2021–2024</span>
+          <h3>Universal Postal Union (UN)</h3>
+          <p>End-to-end design of an international project, web and mobile.</p>
+          <ul>
+            <li>Led the design of the whole project, running meetings in English with an international team.</li>
+            <li>Designed the national front for Correios (Brazil’s postal service) with the Correios Design System.</li>
+          </ul>
         </article>
       </div>
     </div>
@@ -630,7 +636,8 @@ section { scroll-margin-top: 80px; }
     <div class="contact__row">
       <a class="btn" href="mailto:terciowspl@gmail.com">terciowspl@gmail.com</a>
       <a class="btn btn--ghost" href="https://www.linkedin.com/in/terciosantanadesign" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn--ghost" href="assets/tercio-santana-resume-pt.pdf" download>Résumé (PDF, Portuguese)</a>
+      <a class="btn btn--ghost" href="assets/tercio-santana-resume-en.pdf" download>Résumé (PDF)</a>
+      <a class="btn btn--ghost" href="assets/tercio-santana-resume-pt.pdf" download lang="pt-BR">Currículo em português</a>
     </div>
     <div class="foot">
       <span>Tércio Sant’Ana · Senior Product Designer</span>
@@ -690,7 +697,7 @@ section { scroll-margin-top: 80px; }
 
 (function () {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var sel = '.sec__head, .feat, .tile, .block, .pcard, .kpis--ds, .a11y, .case-hero, .case-cover, .facts, .story > *, .step, .fig, .ia, .contact h2, .contact p';
+  var sel = '.sec__head, .feat, .tile, .block, .pcard, .kpis--ds, .ai-fig, .case-hero, .case-cover, .facts, .story > *, .step, .fig, .ia, .contact h2, .contact p';
   var els = Array.prototype.slice.call(document.querySelectorAll(sel));
   document.documentElement.classList.add('anim');
   var groups = new Map();
