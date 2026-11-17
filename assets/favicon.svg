@@ -1,7 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 <style>.k{fill:#15181d}@media (prefers-color-scheme:dark){.k{fill:#eef1ea}}</style>
-<rect class="k" x="2" y="2" width="13" height="13" rx="3.5"/>
-<rect x="17" y="2" width="13" height="13" rx="3.5" fill="#6cb321"/>
-<rect class="k" x="2" y="17" width="13" height="13" rx="3.5"/>
-<rect class="k" x="17" y="17" width="13" height="13" rx="3.5"/>
+<rect fill="#6cb321" x="1.0" y="1.0" width="9" height="9" rx="2.25"/>
+<rect fill="#6cb321" x="11.5" y="1.0" width="9" height="9" rx="2.25"/>
+<rect fill="#6cb321" x="22.0" y="1.0" width="9" height="9" rx="2.25"/>
+<rect class="k" x="1.0" y="11.5" width="9" height="9" rx="2.25"/>
+<rect fill="#6cb321" x="11.5" y="11.5" width="9" height="9" rx="2.25"/>
+<rect class="k" x="22.0" y="11.5" width="9" height="9" rx="2.25"/>
+<rect class="k" x="1.0" y="22.0" width="9" height="9" rx="2.25"/>
+<rect fill="#6cb321" x="11.5" y="22.0" width="9" height="9" rx="2.25"/>
+<rect class="k" x="22.0" y="22.0" width="9" height="9" rx="2.25"/>
 </svg>

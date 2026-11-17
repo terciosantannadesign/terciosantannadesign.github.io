@@ -1,9 +1,9 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tércio Sant’Ana · Senior Product Designer</title>
 <meta name="description" content="Senior Product Designer for complex digital products and Design Systems, currently shaping public health services for Minas Gerais.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=2" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,9 +55,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; }
 .mark { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 20px; text-decoration: none; }
-.mark i { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 22px; }
-.mark i b { aspect-ratio: 1; border-radius: 3px; background: var(--ink); }
-.mark i b:nth-child(2) { background: var(--brand); }
+.mark i { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; width: 24px; }
+.mark i b { aspect-ratio: 1; border-radius: 2px; background: var(--ink); }
+.mark i b:nth-child(-n+3), .mark i b:nth-child(5), .mark i b:nth-child(8) { background: var(--brand); }
 .nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
 .nav a { text-decoration: none; color: var(--muted); }
 .nav a:hover { color: var(--ink); }
@@ -294,7 +294,7 @@ section { scroll-margin-top: 80px; }
 
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="#top" aria-label="Tércio, home"><i aria-hidden="true"><b></b><b></b><b></b><b></b></i>Tércio</a>
+    <a class="mark" href="#top" aria-label="Tércio, home"><i aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i>Tércio</a>
     <nav class="nav" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#design-system">Design System</a>
