@@ -303,6 +303,87 @@ section { scroll-margin-top: 80px; }
   .story h3, .step h3 { font-size: 24px; }
   .outcome { padding: 24px; }
 }
+
+/* ---- Hire Tércio toggle ---- */
+.hire { position: fixed; right: 20px; bottom: 20px; z-index: 50; display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 999px; background: #15181d; color: #fbfcfa; border: 0; font: 600 14px Inter, system-ui, sans-serif; cursor: pointer; box-shadow: 0 10px 30px -10px rgba(0,0,0,.4); }
+.hire__sw { position: relative; width: 40px; height: 24px; border-radius: 999px; background: #6cb321; transition: background .2s; }
+.hire__sw::after { content: ""; position: absolute; top: 3px; left: 19px; width: 18px; height: 18px; border-radius: 50%; background: #fff; transition: left .2s; }
+.hire[aria-checked="false"] .hire__sw { background: #888; }
+.hire[aria-checked="false"] .hire__sw::after { left: 3px; }
+.hire__hint { position: absolute; right: 0; bottom: calc(100% + 10px); white-space: nowrap; padding: 6px 10px; border-radius: 8px; background: #15181d; color: #fbfcfa; font-size: 12px; opacity: 0; transform: translateY(4px); transition: .2s; pointer-events: none; }
+.hire:hover .hire__hint, .hire:focus-visible .hire__hint, .hire.intro .hire__hint { opacity: 1; transform: none; }
+.hire.intro::before { content: ""; position: absolute; inset: -4px; border-radius: 999px; border: 2px solid #6cb321; animation: hirePulse 1.6s ease-out 3; pointer-events: none; }
+@keyframes hirePulse { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(1.18); } }
+@media (prefers-reduced-motion: reduce) { .hire.intro::before { animation: none; } }
+@media (hover: none) { .hire:not(.intro) .hire__hint { display: none; } }
+
+/* ---- The site without a UX designer (subtle) ---- */
+/* Smooth "organizing" transition, used both ways */
+.ux-anim *, .ux-anim *::before { transition: transform .9s cubic-bezier(.2,.7,.2,1), margin .9s cubic-bezier(.2,.7,.2,1), padding .9s cubic-bezier(.2,.7,.2,1), gap .9s cubic-bezier(.2,.7,.2,1), font-size .9s cubic-bezier(.2,.7,.2,1), line-height .9s, letter-spacing .9s, font-weight .9s, color .6s, background-color .6s, border-color .6s, border-radius .9s, opacity .6s !important; }
+@media (prefers-reduced-motion: reduce) { .ux-anim *, .ux-anim *::before { transition: none !important; } }
+
+/* 1. No hierarchy: headings shrink, weights go flat or wrong */
+.no-ux h1, .no-ux h2, .no-ux h3 { font-weight: 400 !important; letter-spacing: -0.045em !important; }
+.no-ux .hero h1 { font-size: clamp(30px, 7cqi, 60px); line-height: .9; }
+.no-ux .hero h1 em { color: var(--ink); font-weight: 300; }
+.no-ux .sec__head h2 { font-size: clamp(26px, 2.6vw, 34px); line-height: .95; }
+.no-ux .feat h3 { font-size: 24px; }
+.no-ux .tile h3, .no-ux .pcard h3 { font-size: 17px; font-weight: 300 !important; }
+.no-ux p, .no-ux li { font-weight: 600; }
+.no-ux .label, .no-ux .frame-tag { font-weight: 700; letter-spacing: 0; }
+
+/* 2. Cramped text */
+.no-ux body { line-height: 1.12; }
+.no-ux .sec__head p, .no-ux .hero p.lede, .no-ux .story p { line-height: 1.1; letter-spacing: -0.02em; }
+.no-ux .sec { padding-block: 44px; }
+.no-ux .sec__head { margin-bottom: 14px; gap: 12px; }
+.no-ux .work, .no-ux .cards, .no-ux .blocks { gap: 6px; }
+.no-ux .tile__body, .no-ux .pcard { gap: 2px; }
+.no-ux .story { gap: 24px; }
+
+/* 3. Low contrast */
+.no-ux { --muted: #b3b8ad; }
+.no-ux .btn { background: var(--surface) !important; color: #a5ab9f !important; border: 1px solid transparent; }
+.no-ux .btn--ghost { color: #c2c7bc !important; }
+.no-ux .nav a { color: #b8bdb2; }
+.no-ux .tile .role b, .no-ux .pcard code { color: #a9c48f; }
+
+/* 4. Things off: alignment, spacing, radius */
+.no-ux .hero__grid > :first-child { transform: translateX(22px); }
+.no-ux .hero__grid > :last-child { transform: translate(-28px, 34px) scale(.92); }
+.no-ux .sec__head > div { transform: translateX(-18px); }
+.no-ux .sec__head p { text-align: center; transform: translateY(-26px); }
+.no-ux .feat { transform: translateX(26px); width: calc(100% - 14px); }
+.no-ux .feat__body { padding: 22px 60px 12px 30px; }
+.no-ux .tile:nth-child(2) { transform: translateY(22px); }
+.no-ux .tile:nth-child(3) { transform: translate(-14px, -6px); width: 104%; }
+.no-ux .tile:nth-child(4) { margin-top: 40px; }
+.no-ux .tile__img { padding: 30px 6px 10px 40px; }
+.no-ux .tile:nth-child(3) .tile__img img { aspect-ratio: 4/3; }
+.no-ux .pcard { align-self: start; }
+.no-ux .pcard:nth-child(2) { padding: 12px 40px 50px; transform: translateY(18px); }
+.no-ux .pcard:nth-child(3) { transform: translateX(16px); }
+.no-ux .tile { border-radius: 2px; }
+.no-ux .pcard:nth-child(1), .no-ux .feat { border-radius: 26px; }
+.no-ux .chips li { border-radius: 4px; padding: 4px 18px 9px 8px; }
+.no-ux .chips li:nth-child(even) { transform: translateY(7px); }
+.no-ux .chips li:nth-child(3) { margin-left: 22px; }
+.no-ux .kpi:nth-child(2) { transform: translateY(-10px); }
+.no-ux .kpi:nth-child(4) { transform: translateX(10px); }
+.no-ux .block:nth-child(2) { transform: translateY(26px); }
+.no-ux .step:nth-child(even) > div { transform: translateX(-22px); }
+.no-ux .step .n { border-radius: 2px; transform: translateY(14px); }
+.no-ux .story > *:nth-child(odd) p { text-align: justify; }
+.no-ux .contact h2 { transform: translateX(30px); }
+
+/* 5. Nothing looks clickable */
+.no-ux .btn { background: transparent !important; border-color: transparent !important; padding-inline: 0; color: var(--muted) !important; font-weight: 400; }
+.no-ux .contact .btn, .no-ux .contact .btn--ghost { color: #6f756a !important; }
+.no-ux .mailgrp { background: transparent; color: #6f756a; padding-left: 0; }
+.no-ux .mailgrp a { color: #6f756a !important; }
+.no-ux .copy { opacity: .25; }
+.no-ux .feat .more, .no-ux .plink { color: var(--muted) !important; text-decoration: none; font-weight: 400; }
+.no-ux .theme { border-color: transparent; color: #c4c9be; }
 </style>
 <script>
 (function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
@@ -763,11 +844,27 @@ section { scroll-margin-top: 80px; }
 
 document.querySelectorAll('.copy').forEach(function (b) {
   b.addEventListener('click', function () {
+    b.classList.remove('intro');
     var v = b.getAttribute('data-copy'), live = b.parentNode.querySelector('[aria-live]');
     function ok() { b.classList.add('done'); if (live) live.textContent = 'Email copied'; clearTimeout(b._t); b._t = setTimeout(function () { b.classList.remove('done'); if (live) live.textContent = ''; }, 1800); }
     if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(v).then(ok, fallback); } else { fallback(); }
     function fallback() { var i = document.createElement('textarea'); i.value = v; i.style.position = 'fixed'; i.style.opacity = '0'; document.body.appendChild(i); i.select(); try { document.execCommand('copy'); ok(); } catch (e) {} document.body.removeChild(i); }
   });
 });
+</script>
+<button type="button" class="hire" role="switch" aria-checked="true" aria-label="Hire Tércio: turn off to see this site without a UX designer"><span class="hire__sw" aria-hidden="true"></span><span class="hire__lbl">Hire Tércio</span><span class="hire__hint" aria-hidden="true">Curious? Turn off to see this site without a UX designer</span></button>
+<script>
+(function () {
+  var b = document.querySelector('.hire'), h = document.documentElement, tm;
+  setTimeout(function () { b.classList.add('intro'); setTimeout(function () { b.classList.remove('intro'); }, 5500); }, 1800);
+  b.addEventListener('click', function () {
+    var on = b.getAttribute('aria-checked') === 'true';
+    h.classList.add('ux-anim'); clearTimeout(tm); tm = setTimeout(function () { h.classList.remove('ux-anim'); }, 1200);
+    b.setAttribute('aria-checked', on ? 'false' : 'true');
+    h.classList.toggle('no-ux', on);
+    b.querySelector('.hire__lbl').textContent = on ? 'Without a UX designer' : 'Hire Tércio';
+    b.querySelector('.hire__hint').textContent = on ? 'Turn on to hire Tércio and fix it' : 'Turn off to see this site without a UX designer';
+  });
+})();
 </script>
 </body></html>
