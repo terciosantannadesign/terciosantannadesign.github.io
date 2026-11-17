@@ -366,8 +366,8 @@ section { scroll-margin-top: 80px; }
 .no-ux .tile { border-radius: 2px; }
 .no-ux .pcard:nth-child(1), .no-ux .feat { border-radius: 26px; }
 .no-ux .chips li { border-radius: 4px; padding: 4px 18px 9px 8px; }
-.no-ux .chips li:nth-child(even) { transform: translateY(7px); }
-.no-ux .chips li:nth-child(3) { margin-left: 22px; }
+.no-ux .chips li:nth-child(even), .no-ux .focus span:nth-child(even) { transform: translateY(7px); }
+.no-ux .chips li:nth-child(3), .no-ux .focus span:nth-child(3) { margin-left: 22px; }
 .no-ux .kpi:nth-child(2) { transform: translateY(-10px); }
 .no-ux .kpi:nth-child(4) { transform: translateX(10px); }
 .no-ux .block:nth-child(2) { transform: translateY(26px); }
@@ -375,6 +375,54 @@ section { scroll-margin-top: 80px; }
 .no-ux .step .n { border-radius: 2px; transform: translateY(14px); }
 .no-ux .story > *:nth-child(odd) p { text-align: justify; }
 .no-ux .contact h2 { transform: translateX(30px); }
+
+/* 6. Ugly type and default-looking components */
+html.no-ux { --display: "Times New Roman", Times, serif; --body: Arial, Helvetica, sans-serif; --mono: "Courier New", Courier, monospace; }
+.no-ux h1, .no-ux h2 { font-family: "Times New Roman", Times, serif !important; font-style: italic; }
+.no-ux h3 { font-family: Verdana, Geneva, sans-serif !important; text-transform: uppercase; font-size: 15px !important; letter-spacing: .08em !important; }
+.no-ux .feat h3 { font-family: Georgia, serif !important; text-transform: none; font-size: 26px !important; }
+.no-ux .label, .no-ux .frame-tag, .no-ux .eyebrow { font-family: Georgia, serif !important; text-transform: none !important; font-style: italic; letter-spacing: 0 !important; font-size: 15px !important; color: var(--muted); }
+.no-ux .frame-tag::before { content: "» "; color: var(--muted); }
+.no-ux .nav a { font-family: "Times New Roman", serif; font-size: 17px; text-decoration: underline; }
+.no-ux .mark { font-family: Arial, sans-serif; font-weight: 400; font-size: 18px; }
+.no-ux .chips li, .no-ux .focus span, .no-ux .soon { font-family: Arial, sans-serif !important; font-size: 12px !important; border-radius: 0 !important; background: #efefef !important; border: 1px solid #767676 !important; color: #333 !important; padding: 2px 6px !important; letter-spacing: 0 !important; text-transform: none !important; box-shadow: inset 1px 1px 0 #fff; }
+.no-ux .tile, .no-ux .pcard, .no-ux .block, .no-ux .kpi { border: 1px solid #b5b5b5 !important; box-shadow: 2px 2px 4px rgba(0,0,0,.25); }
+.no-ux .tile__body, .no-ux .pcard { background: #fff !important; }
+.no-ux .kpi b, .no-ux .stats b { font-family: "Courier New", monospace !important; font-weight: 400 !important; }
+.no-ux .tile .role b, .no-ux .pcard code { font-family: Arial, sans-serif; text-transform: none; letter-spacing: 0; text-decoration: underline; }
+.no-ux .pcard ul { list-style: square; }
+.no-ux .step .n { font-family: Arial, sans-serif; border: 1px solid #767676; color: #333; background: #efefef; }
+.no-ux .sel__tag, .no-ux .sel__size, .no-ux .sel__hint { font-family: "Times New Roman", serif !important; }
+.no-ux .ba, .no-ux .ba__row { border-color: #999 !important; border-radius: 0 !important; }
+.no-ux .ba__head { font-family: "Times New Roman", serif; text-transform: none; font-weight: 700; }
+.no-ux hr, .no-ux .focus { border-color: #999; }
+.no-ux .contact h2 { font-family: "Times New Roman", serif !important; }
+.no-ux .contact .btn, .no-ux .mailgrp a { font-family: "Times New Roman", serif; text-decoration: underline; font-size: 17px; }
+.no-ux .foot { font-family: "Courier New", monospace; font-size: 12px; }
+
+/* 7. Menu: items spread across the bar, logo stuck in the middle */
+.no-ux .top .wrap { justify-content: space-between; }
+.no-ux .nav { display: contents; }
+.no-ux .nav > :nth-child(1) { order: 1; }
+.no-ux .nav > :nth-child(2) { order: 2; }
+.no-ux .mark { order: 3; }
+.no-ux .nav > :nth-child(3) { order: 4; }
+.no-ux .nav > :nth-child(4) { order: 5; }
+.no-ux .nav > :nth-child(5) { order: 6; }
+.no-ux .nav > :nth-child(6) { order: 7; }
+
+/* 8. About me: one flat block of text, stretched photo */
+.no-ux .hero__text .label, .no-ux .hero h1, .no-ux .hero h1 em, .no-ux .hero p.lede { font-family: Arial, Helvetica, sans-serif !important; font-size: 17px !important; font-weight: 400 !important; font-style: normal !important; line-height: 1.15 !important; letter-spacing: 0 !important; text-transform: none !important; text-shadow: none; margin: 0 !important; display: block; color: var(--ink) !important; max-width: none; }
+.no-ux .hero__text .label { color: var(--muted) !important; }
+.no-ux .hero p.lede { color: var(--muted) !important; }
+.no-ux .hero h1 em { display: inline; }
+.no-ux .hero__cta { margin-top: 6px; }
+.no-ux .selected img { aspect-ratio: 3 / 3.6; object-fit: fill; object-position: 50% 50%; }
+
+/* 9. Focus pills become run-on text */
+.no-ux .focus { gap: 0 4px; }
+.no-ux .focus span { background: transparent !important; border: 0 !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; transform: none !important; font-size: 14px !important; color: var(--muted) !important; }
+.no-ux .focus span:not(:last-child)::after { content: ","; }
 
 /* 5. Nothing looks clickable */
 .no-ux .btn { background: transparent !important; border-color: transparent !important; padding-inline: 0; color: var(--muted) !important; font-weight: 400; }
@@ -384,6 +432,51 @@ section { scroll-margin-top: 80px; }
 .no-ux .copy { opacity: .25; }
 .no-ux .feat .more, .no-ux .plink { color: var(--muted) !important; text-decoration: none; font-weight: 400; }
 .no-ux .theme { border-color: transparent; color: #c4c9be; }
+
+/* 10. Whole site: no hierarchy, no grouping, no contrast */
+.no-ux main h2, .no-ux main h3, .no-ux main .label, .no-ux main .frame-tag, .no-ux main p, .no-ux main li, .no-ux main dt, .no-ux main dd, .no-ux main figcaption, .no-ux main code, .no-ux .contact h2, .no-ux .contact p, .no-ux .kpi b, .no-ux .kpi span, .no-ux .stats b, .no-ux .stats span, .no-ux .ba__row *, .no-ux .ba__title, .no-ux .tile .role b, .no-ux .soon, .no-ux .step .n, .no-ux .feat .more, .no-ux .ia * {
+  font-family: Arial, Helvetica, sans-serif !important; font-size: 15px !important; font-weight: 400 !important; font-style: normal !important; line-height: 1.15 !important; letter-spacing: 0 !important; text-transform: none !important; text-shadow: none !important; text-decoration: none; margin-top: 0 !important; margin-bottom: 0 !important; }
+.no-ux main h2, .no-ux main h3, .no-ux .contact h2 { color: var(--ink) !important; }
+.no-ux main p, .no-ux main li, .no-ux main dd, .no-ux main dt, .no-ux .kpi span, .no-ux .stats span, .no-ux main figcaption { color: var(--muted) !important; }
+.no-ux .frame-tag::before { content: none; }
+.no-ux .contact h2 em, .no-ux main h2 em { color: inherit !important; font-style: normal !important; }
+/* sections run into each other */
+.no-ux .sec, .no-ux .case-hero, .no-ux .case-layout, .no-ux .contact { padding-block: 18px !important; }
+.no-ux .process { background: transparent !important; }
+.no-ux .sec__head, .no-ux .story, .no-ux .steps, .no-ux .case-layout, .no-ux .work, .no-ux .cards, .no-ux .blocks, .no-ux .kpis, .no-ux .problems, .no-ux .facts { gap: 4px !important; margin: 0 !important; }
+.no-ux .sec__head { margin-bottom: 6px !important; }
+/* no containers */
+.no-ux .tile, .no-ux .pcard, .no-ux .block, .no-ux .kpi, .no-ux .problem, .no-ux .outcome, .no-ux .ba, .no-ux .ba__row, .no-ux .ia, .no-ux .facts, .no-ux .facts > div, .no-ux .step .n, .no-ux .soon, .no-ux .tile__body, .no-ux .tile__img, .no-ux .feat__img, .no-ux .case-cover {
+  background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; }
+.no-ux .feat { background: transparent !important; border-radius: 0 !important; color: var(--ink); }
+.no-ux .feat__body { background: transparent !important; padding: 8px 0 !important; }
+.no-ux .feat__body h3, .no-ux .feat__body p, .no-ux .feat__body span, .no-ux .feat__body b { color: var(--muted) !important; }
+.no-ux .feat__img img { margin: 0 !important; }
+.no-ux .stats, .no-ux .kpis { display: flex !important; flex-wrap: wrap; gap: 4px 10px !important; border: 0 !important; padding: 0 !important; }
+.no-ux .kpi, .no-ux .stats > div { display: inline-flex; gap: 4px; }
+.no-ux .step { grid-template-columns: 22px 1fr !important; gap: 4px !important; }
+.no-ux .step .n { width: auto; height: auto; display: inline; color: var(--muted) !important; }
+.no-ux .ba__row { grid-template-columns: 1fr 1fr 1fr !important; padding: 0 !important; gap: 4px !important; }
+.no-ux .ia ul { gap: 0 !important; }
+/* images squashed into the wrong shape */
+.no-ux main img { object-fit: fill !important; border-radius: 0 !important; box-shadow: none !important; border: 0 !important; }
+.no-ux .tile__img img { aspect-ratio: 4 / 3.4 !important; }
+.no-ux .feat__img img { height: 300px !important; }
+.no-ux .fig img { aspect-ratio: 16 / 7; width: 100%; }
+.no-ux .block img { aspect-ratio: 1 / 1; }
+/* low contrast everywhere */
+.no-ux { --muted: #b9beb3; }
+.no-ux .contact { background: var(--bg) !important; color: var(--ink); border-top: 0; }
+.no-ux .contact .btn, .no-ux .contact .mailgrp, .no-ux .contact .mailgrp a, .no-ux .foot { color: #b9beb3 !important; }
+.no-ux .foot { border-top: 0 !important; padding-top: 6px; }
+.no-ux main h4, .no-ux .feat h3, .no-ux .contact .btn, .no-ux .contact .mailgrp a, .no-ux .foot, .no-ux .contact .label { font-family: Arial, Helvetica, sans-serif !important; font-size: 15px !important; font-weight: 400 !important; font-style: normal !important; letter-spacing: 0 !important; text-decoration: none !important; line-height: 1.15 !important; margin: 0 !important; }
+.no-ux main h4 { color: var(--ink) !important; }
+.no-ux .ia__root, .no-ux .ia__chips li, .no-ux .ia__branch, .no-ux .ia__branch > ul > li, .no-ux .ia__group { background: transparent !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; color: var(--muted) !important; }
+.no-ux .ia__label, .no-ux .ia__root b, .no-ux .ia__root span { color: var(--muted) !important; }
+.no-ux .ia__chips { gap: 2px 8px !important; }
+.no-ux .ia__branch { margin-top: 4px !important; }
+.no-ux .ia *, .no-ux .ia { border: 0 !important; background: transparent !important; border-radius: 0 !important; box-shadow: none !important; }
+.no-ux .ia [class] { padding: 0 !important; }
 </style>
 <script>
 (function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
