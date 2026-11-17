@@ -962,7 +962,14 @@ document.querySelectorAll('.copy').forEach(function (b) {
     var on = b.getAttribute('aria-checked') === 'true';
     h.classList.add('ux-anim'); clearTimeout(tm); tm = setTimeout(function () { h.classList.remove('ux-anim'); }, 1200);
     b.setAttribute('aria-checked', on ? 'false' : 'true');
+    var anchor = scrollY > 0 && document.elementFromPoint(innerWidth / 2, innerHeight / 3);
+    anchor = anchor && (anchor.closest('.step, .tile, .pcard, .block, .feat, .sec__head, section, footer') || anchor);
+    var top0 = anchor ? anchor.getBoundingClientRect().top : 0;
     h.classList.toggle('no-ux', on);
+    if (anchor) {
+      var t0 = performance.now();
+      (function keep() { window.scrollBy(0, anchor.getBoundingClientRect().top - top0); if (performance.now() - t0 < 1300) requestAnimationFrame(keep); })();
+    }
     b.querySelector('.hire__msg').textContent = on ? 'No UX designer here. Turn on to fix it.' : 'Turn off to see it without a UX designer';
   });
 })();
