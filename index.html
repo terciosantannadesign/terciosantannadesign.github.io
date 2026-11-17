@@ -120,8 +120,10 @@ section { scroll-margin-top: 80px; }
 .stats span { font-size: 13px; color: color-mix(in srgb, var(--on-ink) 65%, transparent); }
 .feat .more { font-weight: 600; color: var(--brand); }
 
-.tile { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.tile img { width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: top left; border-radius: var(--radius); border: 1px solid var(--line); }
+.tile { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.tile__img { background: var(--frame); padding: 20px 20px 0; }
+.tile__img img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: top left; border-radius: 8px 8px 0 0; box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 6px 18px rgba(0,0,0,.08); }
+.tile__body { display: flex; flex-direction: column; gap: 12px; flex: 1; padding: 20px 22px 24px; }
 .tile h3 { font-size: 22px; font-weight: 700; }
 .tile p { color: var(--muted); font-size: 15px; }
 .tile .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
@@ -228,7 +230,7 @@ section { scroll-margin-top: 80px; }
 /* Scroll reveal */
 .anim .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
 .anim .reveal.in { opacity: 1; transform: none; }
-.tile img, .block img { transition: transform .4s cubic-bezier(.2,.7,.2,1); }
+.block img { transition: transform .4s cubic-bezier(.2,.7,.2,1); }
 @media (prefers-reduced-motion: reduce) { .anim .reveal { opacity: 1; transform: none; } }
 
 .outcome { background: var(--brand-soft); border-radius: var(--radius); padding: 32px; }
@@ -352,22 +354,28 @@ section { scroll-margin-top: 80px; }
         </a>
 
         <article class="tile">
-          <img src="assets/img/gallery-radar.png" width="560" height="315" alt="Radar: action detail screen with checklist and comments">
+          <div class="tile__img"><img src="assets/img/gallery-radar.png" width="560" height="315" alt="Radar: action detail screen with checklist and comments"></div>
+          <div class="tile__body">
           <div class="row"><h3>RADAR</h3><span class="soon">SES-MG</span></div>
           <p>Tracks the Department’s projects in primary care units, like a task board for public health.</p>
-          <p class="role"><b>My role</b> Product design and discovery interviews with users, applied to the redesign of its features.</p>
+          <p class="role"><b>My role</b> Product design and user interviews that guided the feature redesign.</p>
+        </div>
         </article>
         <article class="tile">
-          <img src="assets/img/gallery-sigpmac.png" width="560" height="315" alt="SIGPMAC: studies maintenance table">
+          <div class="tile__img"><img src="assets/img/gallery-sigpmac.png" width="560" height="315" alt="SIGPMAC: studies maintenance table"></div>
+          <div class="tile__body">
           <div class="row"><h3>SIGPMAC</h3><span class="soon">SES-MG</span></div>
           <p>Distributes public funds to hospitals and health centers across the state.</p>
           <p class="role"><b>My role</b> Product design of the funding workflows, on the shared Design System.</p>
+        </div>
         </article>
         <article class="tile">
-          <img src="assets/img/gallery-alexsus.png" width="560" height="315" alt="AlexSUS: teams list in dark mode">
+          <div class="tile__img"><img src="assets/img/gallery-alexsus.png" width="560" height="315" alt="AlexSUS: teams list in dark mode"></div>
+          <div class="tile__body">
           <div class="row"><h3>AlexSUS</h3><span class="soon">SES-MG</span></div>
-          <p>AI assistant that gathers and summarizes regional data for the Department’s senior leadership.</p>
+          <p>AI assistant that gathers and summarizes regional data for senior leadership.</p>
           <p class="role"><b>My role</b> Product design of the assistant’s interface on the shared Design System.</p>
+        </div>
         </article>
       </div>
     </div>
