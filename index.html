@@ -257,6 +257,10 @@ section { scroll-margin-top: 80px; }
 .contact__row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
 .contact .btn { background: var(--on-ink); color: var(--ink) !important; }
 .contact .btn--ghost { background: transparent; color: var(--on-ink) !important; border-color: color-mix(in srgb, var(--on-ink) 25%, transparent); }
+.mailgrp { display: inline-flex; gap: 6px; }
+.copy { cursor: pointer; font-family: inherit; border: 1px solid color-mix(in srgb, var(--on-ink) 25%, transparent); }
+.copy.done { color: var(--brand) !important; border-color: var(--brand); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 96px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--on-ink) 15%, transparent); font-size: 14px; color: color-mix(in srgb, var(--on-ink) 60%, transparent); }
 
 /* Responsive */
@@ -653,7 +657,7 @@ section { scroll-margin-top: 80px; }
     <span class="label" style="color:inherit;opacity:.6">Contact</span>
     <h2>Let’s build something <em>that scales.</em></h2>
     <div class="contact__row">
-      <a class="btn" href="mailto:terciowspl@gmail.com">terciowspl@gmail.com</a>
+      <span class="mailgrp"><a class="btn" href="mailto:terciowspl@gmail.com">terciowspl@gmail.com</a><button type="button" class="btn btn--ghost copy" data-copy="terciowspl@gmail.com" aria-label="Copy email address"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span class="copy__t">Copy</span></button><span class="sr-only" aria-live="polite"></span></span>
       <a class="btn btn--ghost" href="https://www.linkedin.com/in/terciosantanadesign" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn--ghost" href="assets/tercio-santana-resume-en.pdf" download>Résumé (PDF)</a>
       <a class="btn btn--ghost" href="assets/tercio-santana-resume-pt.pdf" download lang="pt-BR">Currículo em português</a>
@@ -746,5 +750,14 @@ section { scroll-margin-top: 80px; }
   if (mq.addEventListener) mq.addEventListener('change', sync);
   sync();
 })();
+
+document.querySelectorAll('.copy').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var v = b.getAttribute('data-copy'), t = b.querySelector('.copy__t'), live = b.parentNode.querySelector('[aria-live]');
+    function ok() { t.textContent = 'Copied'; b.classList.add('done'); if (live) live.textContent = 'Email copied'; clearTimeout(b._t); b._t = setTimeout(function () { t.textContent = 'Copy'; b.classList.remove('done'); if (live) live.textContent = ''; }, 1800); }
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(v).then(ok, fallback); } else { fallback(); }
+    function fallback() { var i = document.createElement('textarea'); i.value = v; i.style.position = 'fixed'; i.style.opacity = '0'; document.body.appendChild(i); i.select(); try { document.execCommand('copy'); ok(); } catch (e) {} document.body.removeChild(i); }
+  });
+});
 </script>
 </body></html>
