@@ -106,10 +106,7 @@ section { scroll-margin-top: 80px; }
 .sec__head p { color: var(--muted); font-size: 18px; max-width: 36em; }
 
 /* Work */
-.work { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-a.tile { color: inherit; text-decoration: none; transition: border-color .2s, transform .2s; }
-a.tile:hover { border-color: var(--brand); transform: translateY(-2px); }
-.tile .more { font-weight: 600; color: var(--brand); font-size: 15px; }
+.work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .feat { grid-column: 1 / -1; display: grid; grid-template-columns: 6fr 5fr; background: transparent; isolation: isolate; color: var(--on-ink); border-radius: var(--radius); overflow: hidden; text-decoration: none; }
 .feat__img { background: var(--surface); overflow: hidden; padding: 36px 36px 0; display: flex; align-items: flex-end; min-height: 100%; }
 .feat__img img { width: 100%; height: 470px; margin-bottom: -50px; object-fit: cover; object-position: 50% 0%; border-radius: 12px 12px 0 0; box-shadow: 0 24px 50px -28px rgba(0,0,0,.45); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
@@ -565,40 +562,28 @@ html.no-ux { --display: "Times New Roman", Times, serif; --body: Arial, Helvetic
           </div>
         </a>
 
-        <a class="tile tile--link" href="miguilim.html">
-          <div class="tile__img"><img src="assets/img/cases/miguilim-screening.jpg" width="560" height="315" alt="Miguilim: eye screening list with funnel cards at the top" loading="lazy"></div>
-          <div class="tile__body">
-          <div class="row"><h3>Miguilim</h3><span class="soon">SES-MG</span></div>
-          <p>Follows every public school student from vision and hearing screening to glasses or hearing aids.</p>
-          <p class="role"><b>My role</b> Product design of the full journey, from screening to delivery.</p>
-          <span class="more">Read the case →</span>
-        </div>
-        </a>
-        <a class="tile tile--link" href="sigpmac.html">
-          <div class="tile__img"><img src="assets/img/cases/sigpmac-period.jpg" width="560" height="315" alt="SIGPMAC: studies table with the current period fixed in the menu" loading="lazy"></div>
-          <div class="tile__body">
-          <div class="row"><h3>SIGPMAC</h3><span class="soon">SES-MG</span></div>
-          <p>Distributes public funds to hospitals and health centers across the state.</p>
-          <p class="role"><b>My role</b> Product design of the funding workflows, replacing a legacy system.</p>
-          <span class="more">Read the case →</span>
-        </div>
-        </a>
-        <a class="tile tile--link" href="alexsus.html">
-          <div class="tile__img"><img src="assets/img/cases/alexsus-chat.jpg" width="560" height="315" alt="AlexSUS: chat with a structured answer in dark mode" loading="lazy"></div>
-          <div class="tile__body">
-          <div class="row"><h3>AlexSUS</h3><span class="soon">SES-MG</span></div>
-          <p>Control panel for a health AI used on WhatsApp: who can use it and how it answers.</p>
-          <p class="role"><b>My role</b> Product design from scratch, from access rules to agent setup.</p>
-          <span class="more">Read the case →</span>
-        </div>
-        </a>
         <article class="tile">
           <div class="tile__img"><img src="assets/img/gallery-radar.png" width="560" height="315" alt="Radar: action detail screen with checklist and comments"></div>
           <div class="tile__body">
           <div class="row"><h3>RADAR</h3><span class="soon">SES-MG</span></div>
           <p>Tracks the Department’s projects in primary care units, like a task board for public health.</p>
           <p class="role"><b>My role</b> Product design and user interviews that guided the feature redesign.</p>
-          <span class="more" aria-hidden="true" style="visibility:hidden">·</span>
+        </div>
+        </article>
+        <article class="tile">
+          <div class="tile__img"><img src="assets/img/gallery-sigpmac.png" width="560" height="315" alt="SIGPMAC: studies maintenance table"></div>
+          <div class="tile__body">
+          <div class="row"><h3>SIGPMAC</h3><span class="soon">SES-MG</span></div>
+          <p>Distributes public funds to hospitals and health centers across the state.</p>
+          <p class="role"><b>My role</b> Product design of the funding workflows, on the shared Design System.</p>
+        </div>
+        </article>
+        <article class="tile">
+          <div class="tile__img"><img src="assets/img/gallery-alexsus.png" width="560" height="315" alt="AlexSUS: teams list in dark mode"></div>
+          <div class="tile__body">
+          <div class="row"><h3>AlexSUS</h3><span class="soon">SES-MG</span></div>
+          <p>AI assistant that gathers and summarizes regional data for senior leadership.</p>
+          <p class="role"><b>My role</b> Product design of the assistant’s interface on the shared Design System.</p>
         </div>
         </article>
       </div>
