@@ -203,6 +203,7 @@ section { scroll-margin-top: 80px; }
 .kpis { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; margin: 18px 0 22px; }
 .kpi { background: var(--bg); border-radius: 10px; padding: 16px; min-width: 0; }
 .kpi b { display: block; font-family: var(--display); font-size: 34px; line-height: 1; color: var(--ink); }
+.kpi-note { margin: -10px 0 22px; font-size: 13px; color: var(--muted); }
 .kpi span { display: block; margin-top: 8px; font-size: 14px; line-height: 1.35; color: var(--muted); }
 @media (max-width: 640px) { .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 
@@ -762,12 +763,12 @@ html.no-ux { --display: "Times New Roman", Times, serif; --body: Arial, Helvetic
 
             <div class="step"><span class="n">04</span><div>
               <h3>Advanced search</h3>
-              <p>Since a large share of visits are about finding a specific document or service, search got its own attention:</p>
+              <p>Since a large share of visits are about finding a specific document or service, search got its own attention. Today’s numbers back that up: around 48,000 searches a month, with more than 24,000 different terms.</p>
               <ul>
                 <li>Results grouped by type: Pages, Programs and Actions, Documents and News</li>
                 <li>Side filters by period, year, month, category and section</li>
                 <li>A modal with tips for an effective search</li>
-                <li>A “no results” state that guides the user instead of leaving them at a dead end</li>
+                <li>A “no results” state that guides the user instead of leaving them at a dead end. About 7% of searches (over 3,000 a month) land there, so it could not be a blank page</li>
               </ul>
               <figure class="fig"><img src="assets/img/ses-search-refined.jpg" width="1320" height="1560" alt="Advanced search results page with grouped results and side filters"><figcaption>Search results with grouped types and side filters</figcaption></figure>
             </div></div>
@@ -817,14 +818,14 @@ html.no-ux { --display: "Times New Roman", Times, serif; --body: Arial, Helvetic
               <div class="ba__row" role="row"><b role="rowheader">Visual standard</b><span role="cell">Each element in its own style</span><span role="cell">One component library and 390+ icons</span></div>
               <div class="ba__row" role="row"><b role="rowheader">Footer</b><span role="cell">Address only</span><span role="cell">Links organized into columns</span></div>
             </div>
-            <!-- Impact metrics: fill only with real data from SES-MG, then uncomment.
+            <h4 class="ba__title">The live portal in numbers</h4>
             <div class="kpis">
-              <div class="kpi"><b>[XX%]</b><span>[e.g. visits to the shortcut pages]</span></div>
-              <div class="kpi"><b>[XX%]</b><span>[e.g. searches with a result clicked]</span></div>
-              <div class="kpi"><b>[XX]</b><span>[e.g. fewer contact requests about finding content]</span></div>
-              <div class="kpi"><b>[XX]</b><span>[e.g. accessibility score]</span></div>
+              <div class="kpi"><b>~48k</b><span>searches a month, with 24k+ different terms</span></div>
+              <div class="kpi"><b>100</b><span>SEO score in Google Lighthouse</span></div>
+              <div class="kpi"><b>86</b><span>accessibility score on mobile (best practices: 96)</span></div>
+              <div class="kpi"><b>0</b><span>layout shift while loading (CLS), from 28 days of real users</span></div>
             </div>
-            -->
+            <p class="kpi-note">Measured in November 2026: on-site search over the last 30 days, plus Google PageSpeed Insights.</p>
             <ul>
               <li>The portal launched and is now the official website of the Minas Gerais State Health Department.</li>
               <li>Around 65 screens were standardized on a single component library.</li>
