@@ -106,13 +106,12 @@ section { scroll-margin-top: 80px; }
 .sec__head p { color: var(--muted); font-size: 18px; max-width: 36em; }
 
 /* Work */
-.work { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; }
-/* Tiles fill every row evenly: 4 = 2+2, 5 = 2+3, 3 or 6 = 3 per row */
+.work { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; }
+/* Small tiles, rows always symmetric: 3 or 6 = 3 per row, 4 = one row of 4, 5 = 3 + 2 centered */
 @media (min-width: 961px) {
-  .work > .tile { grid-column: span 3; }
-  .work:has(> .tile:nth-of-type(5)) > .tile:nth-of-type(n+3),
-  .work:has(> .tile:nth-of-type(3)):not(:has(> .tile:nth-of-type(4))) > .tile,
-  .work:has(> .tile:nth-of-type(6)) > .tile { grid-column: span 2; }
+  .work > .tile { grid-column: span 4; }
+  .work:has(> .tile:nth-of-type(4)):not(:has(> .tile:nth-of-type(5))) > .tile { grid-column: span 3; }
+  .work:has(> .tile:nth-of-type(5)):not(:has(> .tile:nth-of-type(6))) > .tile:nth-of-type(4) { grid-column: 3 / span 4; }
 }
 .feat { grid-column: 1 / -1; display: grid; grid-template-columns: 6fr 5fr; background: transparent; isolation: isolate; color: var(--on-ink); border-radius: var(--radius); overflow: hidden; text-decoration: none; }
 .feat__img { background: var(--surface); overflow: hidden; padding: 36px 36px 0; display: flex; align-items: flex-end; min-height: 100%; }
@@ -596,7 +595,7 @@ html.no-ux { --display: "Times New Roman", Times, serif; --body: Arial, Helvetic
         </div>
         </article>
         <article class="tile">
-          <div class="tile__img"><img src="assets/img/gallery-miguilim.png" width="560" height="315" alt="Miguilim: school eye screenings list with funnel cards and filters"></div>
+          <div class="tile__img"><img src="assets/img/gallery-miguilim.png" width="560" height="315" alt="Miguilim: school eye screenings list with progress cards and filters"></div>
           <div class="tile__body">
           <div class="row"><h3>Miguilim</h3><span class="soon">SES-MG</span></div>
           <p>Screens school children for vision and hearing problems and follows each case from referral to glasses delivery.</p>
